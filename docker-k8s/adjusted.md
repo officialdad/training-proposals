@@ -50,7 +50,7 @@ At the end of this programme, participants will be able to:
 3. Build, run, and manage Docker containers confidently
 4. Create and optimise Docker images using Dockerfiles
 5. Orchestrate multi-container applications with Docker Compose
-6. Understand the basics of CI/CD pipelines
+6. Understand the basics of CI/CD pipelines and container registries (GHCR)
 7. Gain a foundational awareness of Kubernetes and container orchestration
 
 ## 05 Learning Outcomes
@@ -62,6 +62,7 @@ Upon completion of the programme, participants will be able to:
 - Build, run, and debug containerised applications using Docker
 - Write Dockerfiles and docker-compose files for real applications
 - Understand the building blocks of a CI/CD pipeline
+- Publish and pull Docker images using GitHub Container Registry (GHCR)
 - Describe what Kubernetes is and when it is needed
 
 ## 06 Training Methodology
@@ -143,17 +144,18 @@ Upon completion of the programme, participants will be able to:
 - Managing image versions and tags
 - Common pitfalls to avoid
 
-**Hour 5 — Introduction to CI/CD**
+**Hour 5 — Introduction to CI/CD & Container Registries**
 - What is CI/CD and why it matters
 - The role of Docker in CI/CD pipelines
+- Introduction to container registries (Docker Hub, GitHub Container Registry)
 - Walkthrough of a simple GitHub Actions workflow
-- Automating builds and tests
 
-**Hour 6 — Hands-On Lab: Build a Simple CI/CD Pipeline**
+**Hour 6 — Hands-On Lab: CI/CD Pipeline with GHCR**
 - Dockerising a sample application
 - Pushing code to GitHub
-- Triggering an automated build via GitHub Actions
-- Reviewing pipeline results
+- Automating image builds via GitHub Actions
+- Publishing the image to GitHub Container Registry (ghcr.io)
+- Pulling and running the published image
 
 **Hour 7 — Kubernetes Crash Course (Preview)**
 - What Kubernetes is and why it exists
