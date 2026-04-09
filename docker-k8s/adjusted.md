@@ -112,37 +112,49 @@ Upon completion of the programme, participants will be able to:
 - Working with Docker Hub and public images
 - Inspecting and debugging containers
 
-**Hour 6 — Hands-On Lab: Git + Docker Basics**
-- Cloning a sample project from GitHub
-- Running the application in a container
-- Committing and pushing changes
-- Group review and discussion
-
-### Day 2: Docker in Practice, CI/CD & Kubernetes Preview (8 Hours)
-
-**Hour 1 — Building Docker Images**
-- Writing Dockerfiles
+**Hour 6 — Building Docker Images**
+- Writing your first Dockerfile
 - Building and tagging custom images
 - Understanding image layers
-- Basic image optimisation
+- Managing local images
 
-**Hour 2 — Docker Networking & Volumes**
+**Hour 7 — Docker Networking & Volumes**
 - Container networking basics
 - Port mapping and exposure
 - Volumes and data persistence
 - Environment variables and configuration
 
-**Hour 3 — Multi-Container Apps with Docker Compose**
+**Hour 8 — Hands-On Lab: Git + Docker Basics**
+- Cloning a sample project from GitHub
+- Dockerising and running the application
+- Committing and pushing changes
+- Group review and discussion
+
+### Day 2: Docker in Practice, CI/CD & Kubernetes Preview (8 Hours)
+
+**Hour 1 — Dockerfile Deep Dive & Optimisation**
+- Review of Day 1 concepts
+- Multi-stage builds
+- Reducing image size
+- Caching and build efficiency
+
+**Hour 2 — Multi-Container Apps with Docker Compose**
 - Introduction to Docker Compose
 - Writing docker-compose.yml files
 - Managing services and dependencies
 - Running a multi-container application
 
-**Hour 4 — Docker Best Practices**
-- Image size and efficiency
-- Basic security considerations
+**Hour 3 — Docker Best Practices**
+- Security considerations
 - Managing image versions and tags
+- Resource management
 - Common pitfalls to avoid
+
+**Hour 4 — Hands-On Lab: Multi-Container Application**
+- Building a web app with a database using Compose
+- Managing logs and debugging
+- Stopping, restarting, and cleaning up
+- Discussion and review
 
 **Hour 5 — Introduction to CI/CD & Container Registries**
 - What is CI/CD and why it matters
