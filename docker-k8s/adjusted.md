@@ -128,7 +128,7 @@ Upon completion of the programme, participants will be able to:
 - Cloning a sample project from GitHub
 - Dockerising and running the application
 - Committing and pushing changes
-- Group review and discussion
+- Review and discussion
 
 ### Day 2: Docker in Practice, CI/CD & Kubernetes Preview (8 Hours)
 
@@ -154,7 +154,7 @@ Upon completion of the programme, participants will be able to:
 - Building a web app with a database using Compose
 - Managing logs and debugging
 - Stopping, restarting, and cleaning up
-- Discussion and review
+- Review and discussion
 
 **Hour 5 — Introduction to CI/CD & Container Registries**
 - What is CI/CD and why it matters
@@ -175,9 +175,9 @@ Upon completion of the programme, participants will be able to:
 - Key concepts: deployments and services
 - Live demo: deploying a container to Minikube
 
-**Hour 8 — Wrap-Up & Next Steps**
+**Hour 8 — Hands-On Lab: Minikube & Wrap Up**
+- Follow along for Minikube setup
 - Recap of key concepts
-- Preview of the intermediate Kubernetes follow-up programme
 - Final Q&A and discussion
 - Feedback and closing
 
