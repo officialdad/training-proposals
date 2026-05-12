@@ -10,6 +10,7 @@ Malaysia HRDCorp SBL training proposals and course outlines.
 | devops-docker-k8s | DevOps - Docker & Kubernetes | TBC | draft | 2d / 16h | 2026-05-04 |
 | devops-k8s | Kubernetes for Modern Application Deployment | TBC | draft | 3d / 24h | 2026-05-04 |
 | website-101 | Website 101: Build & Deploy Your First Website with AI | TBC | approved | 1d / 4.5h | 2026-05-04 |
+| shipping-fullstack-cloudflare | Shipping Fullstack Web Applications with Cloudflare Workers | Agmo Academy | draft | 1d / 8h | 2026-05-13 |
 
 ## Layout
 
