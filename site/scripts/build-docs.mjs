@@ -39,11 +39,11 @@ export function buildDocs({coursesDir, outDir}) {
     const frontmatter = renderFrontmatter({
       title: meta.title,
       description: `${meta.client} · ${meta.duration_days}d / ${meta.duration_hours}h`,
-      slug: `/proposals/${slug}`,
+      slug: `/${slug}`,
     });
 
     writeFileSync(join(outDir, `${slug}.md`), frontmatter + '\n' + body);
-    console.log(`[build-docs] wrote proposals/${slug}.md (source: ${proposalPath === adjusted ? 'adjusted' : 'original'})`);
+    console.log(`[build-docs] wrote ${slug}.md (source: ${proposalPath === adjusted ? 'adjusted' : 'original'})`);
   }
 }
 
@@ -92,6 +92,6 @@ if (isMain) {
   const repoRoot = resolve(here, '..', '..');
   buildDocs({
     coursesDir: join(repoRoot, 'courses'),
-    outDir: join(repoRoot, 'site', 'docs', 'proposals'),
+    outDir: join(repoRoot, 'site', 'docs'),
   });
 }

@@ -8,7 +8,7 @@ import {buildDocs} from './build-docs.mjs';
 function setupRepo() {
   const root = mkdtempSync(join(tmpdir(), 'tp-test-'));
   const coursesDir = join(root, 'courses');
-  const outDir = join(root, 'site', 'docs', 'proposals');
+  const outDir = join(root, 'site', 'docs');
   mkdirSync(coursesDir, {recursive: true});
   return {root, coursesDir, outDir};
 }
@@ -92,7 +92,7 @@ test('emits frontmatter with title, description, slug, hidden sidebar', () => {
   assert.match(out, /^---\n/);
   assert.match(out, /title: "Test foo"/);
   assert.match(out, /description: "Acme · 1d \/ 8h"/);
-  assert.match(out, /slug: \/proposals\/foo/);
+  assert.match(out, /slug: \/foo/);
   assert.match(out, /sidebar_class_name: hidden/);
 });
 

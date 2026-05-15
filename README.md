@@ -37,7 +37,7 @@ When you ask Claude Code about a proposal, the `hrdcorp-proposals` skill loads a
 
 Each course's latest content is published to GitHub Pages at:
 
-    https://officialdad.github.io/training-proposals/proposals/<slug>/
+    https://officialdad.github.io/training-proposals/<slug>/
 
 The page shows `proposal-adjusted.md` if it exists, otherwise `proposal-original.md`, and appends `outline.md` as a section when present. `adjustment-notes.md` is never published.
 
