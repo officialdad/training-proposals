@@ -13,10 +13,15 @@ const config: Config = {
   trailingSlash: true,
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   noIndex: true,
 
   i18n: {defaultLocale: 'en', locales: ['en']},
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
+  },
 
   presets: [
     [
