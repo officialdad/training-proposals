@@ -32,3 +32,15 @@ When you ask Claude Code about a proposal, the `hrdcorp-proposals` skill loads a
 - `proposal-author` — scaffold a new course and author from scratch
 - `proposal-adjust` — review a TP draft and produce an adjusted version
 - `outline-expand` — expand an approved proposal into a full course outline
+
+## Hosting
+
+Each course's latest content is published to GitHub Pages at:
+
+    https://officialdad.github.io/training-proposals/proposals/<slug>/
+
+The page shows `proposal-adjusted.md` if it exists, otherwise `proposal-original.md`, and appends `outline.md` as a section when present. `adjustment-notes.md` is never published.
+
+The site is intentionally unlisted: there is no index page and `robots.txt` blocks crawlers. Share the per-course URL directly with the Training Provider.
+
+Pages rebuild automatically when any file under `courses/` or `site/` is pushed to `main`. See `.github/workflows/publish.yml`.
