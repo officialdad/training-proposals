@@ -38,6 +38,7 @@ const config: Config = {
     navbar: {
       title: 'Training Proposals',
       logo: {alt: 'logo', src: 'img/logo.svg'},
+      items: [],
     },
     footer: {style: 'dark', copyright: `© ${new Date().getFullYear()} officialdad`},
   } satisfies Preset.ThemeConfig,
