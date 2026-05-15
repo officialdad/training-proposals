@@ -1,0 +1,7 @@
+node_modules/
+.docusaurus/
+build/
+docs/
+.env.local
+.DS_Store
+npm-debug.log*
