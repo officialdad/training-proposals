@@ -12,6 +12,7 @@ Malaysia HRDCorp SBL training proposals and course outlines.
 | website-101 | Website 101: Build & Deploy Your First Website with AI | TBC | approved | 1d / 4.5h | 2026-05-04 |
 | shipping-fullstack-cloudflare | Shipping Fullstack Web Applications with Cloudflare Workers | Agmo Academy | draft | 1d / 8h | 2026-05-13 |
 | firebase-ai-fullstack | Firebase Fundamentals: AI-Assisted Fullstack Development | Trainocate / ISKL | draft | 1d / 8h | 2026-05-15 |
+| ai-cli-fundamentals | AI Fundamentals with Gemini CLI: Beginner to Power User | TBC | draft | 1d / 8h | 2026-05-22 |
 
 ## Layout
 
