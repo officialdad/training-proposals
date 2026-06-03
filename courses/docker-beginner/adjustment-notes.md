@@ -34,3 +34,13 @@ Adjustments applied to Taming Tech's `proposal-original.md` to produce `proposal
 
 - Kubernetes / Minikube preview — out of scope for a Docker-only course.
 - Git/GitHub and CI/CD-with-GHCR hours — replaced by deeper Docker operations, security, and deployment content to fill the extra day.
+
+## Revision — complete-beginner onboarding, Windows WSL2 (2026-06-03)
+
+Follow-up request: participants are **complete beginners with no command-line or Linux background**, mostly on Windows. Adjusted `proposal-adjusted.md` accordingly (original untouched).
+
+- **Section 01 / 02:** State up front that no prior Linux/command-line experience is assumed; added "complete beginners" to the target audience.
+- **Section 03 (Entry Requirements):** Removed the command-line prerequisite and the "arrive with Docker installed" assumption. Added the realistic prerequisites for installing in class — Windows 10/11 with admin rights and BIOS/UEFI virtualisation (for WSL2), 8 GB+ RAM, ~10 GB disk, and internet.
+- **Section 04 / 05:** Added a setup objective and learning outcome (install/verify WSL2 + Docker Desktop, run basic terminal commands unaided).
+- **Section 07 (Day 1):** Opened with two onboarding hours — **Hour 1 WSL2 & Docker Desktop install**, **Hour 2 terminal & Linux survival kit** — before any Docker theory. Merged the former image-CLI and Dockerfile-practice hours to keep Day 1 at 7 hours; Days 2–3 unchanged. Total stays 3 days / 21 hours.
+- **Section 10 (Tools):** Tools are now installed during Day 1 rather than assumed; named WSL2 + Ubuntu and noted Docker Desktop bundles Compose.

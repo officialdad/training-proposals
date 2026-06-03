@@ -10,7 +10,7 @@
 
 ## 01 Course Overview
 
-This programme gives beginners a complete, hands-on path to running real applications with Docker — from first container to a multi-service stack deployed on their own server. It focuses solely on Docker (no Kubernetes), trading breadth for the depth needed to make participants genuinely self-sufficient by the end of three days.
+This programme gives beginners a complete, hands-on path to running real applications with Docker — from first container to a multi-service stack deployed on their own server. It focuses solely on Docker (no Kubernetes), trading breadth for the depth needed to make participants genuinely self-sufficient by the end of three days. The programme assumes **no prior Linux or command-line experience** — Day 1 begins by setting up a working environment on Windows with WSL2 and Docker Desktop, plus a short terminal survival kit, before any Docker concept is introduced.
 
 The course is built around one realistic, recurring scenario: containerising and operating a web stack made of **Nginx, a backend application, a database, and phpMyAdmin** with Docker Compose. Every concept — images, Dockerfiles, volumes, networking, logging, security, backup — is taught in service of getting that stack running, troubleshooting it, securing it, recovering it, and redeploying it without fear.
 
@@ -19,6 +19,7 @@ By the end, participants will not just understand Docker; they will have dockeri
 ## 02 Target Audience
 
 **By Designation**
+- Complete beginners new to Docker, Linux, and the command line
 - Software Developers
 - System Administrators
 - DevOps & Infrastructure Engineers
@@ -36,28 +37,32 @@ By the end, participants will not just understand Docker; they will have dockeri
 
 ## 03 Entry Requirements
 
-- Basic understanding of software development principles
-- Familiarity with the command line (Linux/Terminal)
-- Basic knowledge of how web applications and databases fit together is an advantage
-- Participants must bring a laptop with admin access and Docker Desktop / Docker Engine installed
+- **No prior Docker, Linux, or command-line experience required** — the programme starts from environment setup and terminal basics
+- Comfortable using a computer and installing software
+- Basic understanding of what web applications and databases are is an advantage (not required)
+- **Windows participants:** a laptop running Windows 10/11 (64-bit) with administrator rights and hardware virtualisation enabled in BIOS/UEFI (needed for WSL2); macOS and Linux laptops are also fully supported
+- Minimum 8 GB RAM (16 GB recommended) and at least 10 GB free disk space
+- Stable internet connection for downloading WSL2, Docker Desktop, and images
 
 ## 04 Course Objectives
 
 At the end of this programme, participants will be able to:
 
-1. Explain Docker architecture and distinguish between images, containers, registries, and Docker Compose
-2. Install Docker and write, build, and tag their own Dockerfiles
-3. Persist data correctly using volumes and bind mounts
-4. Orchestrate a multi-service stack (Nginx, backend, database, phpMyAdmin) with Docker Compose
-5. Inspect logs, troubleshoot container failures, and configure automatic restarts
-6. Apply basic Docker security practices to images and running containers
-7. Back up and restore container volumes and database data
-8. Deploy and redeploy a containerised stack to their own server with confidence
+1. Set up a working Docker environment on Windows using WSL2 and Docker Desktop, and navigate the terminal with confidence
+2. Explain Docker architecture and distinguish between images, containers, registries, and Docker Compose
+3. Write, build, and tag their own Dockerfiles
+4. Persist data correctly using volumes and bind mounts
+5. Orchestrate a multi-service stack (Nginx, backend, database, phpMyAdmin) with Docker Compose
+6. Inspect logs, troubleshoot container failures, and configure automatic restarts
+7. Apply basic Docker security practices to images and running containers
+8. Back up and restore container volumes and database data
+9. Deploy and redeploy a containerised stack to their own server with confidence
 
 ## 05 Learning Outcomes
 
 Upon completion of the programme, participants will be able to:
 
+- Install and verify WSL2 and Docker Desktop on Windows and run basic terminal commands unaided
 - Describe how the Docker engine, images, containers, and Docker Hub work together
 - Write a Dockerfile to containerise a backend application and build an optimised image
 - Compose Nginx + backend + database + phpMyAdmin into a single working stack
@@ -82,37 +87,37 @@ Upon completion of the programme, participants will be able to:
 
 *3-day programme · 21 hours of intensive, hands-on learning*
 
-### Day 1: Docker Architecture, Images & Dockerfiles (7 Hours)
+### Day 1: Setup, Docker Foundations & First Images (7 Hours)
 
-**Hour 1 — Containerisation & Docker Architecture**
-- Why containers? Problems they solve vs traditional deployment
+**Hour 1 — Getting Started on Windows: WSL2 & Docker Desktop**
+- What WSL2 is and why Windows needs it to run Docker
+- Turning on WSL2 and installing Ubuntu (guided, step by step)
+- Installing Docker Desktop and connecting it to WSL2
+- Verifying everything with `docker run hello-world`
+
+**Hour 2 — Terminal & Linux Survival Kit (for absolute beginners)**
+- What the command line is and how to open a terminal
+- Moving around: `pwd`, `ls`, `cd`, and how file paths work
+- Working with files: `cat`, `nano`, copying, moving, and `sudo`
+- Reading command output and recovering from typos and errors
+
+**Hour 3 — Containerisation & Docker Architecture**
+- Why containers? Problems they solve vs installing software directly
 - Virtual machines vs containers
-- The pieces: image, container, registry, Docker engine (daemon + client)
+- The pieces: image, container, registry, and the Docker engine
 - The role of Docker Hub
 
-**Hour 2 — Installing Docker & Running Your First Container**
-- Installing and verifying Docker
+**Hour 4 — Running Containers & Working with Images**
 - `docker run`, `ps`, `stop`, `rm` — the container lifecycle
-- Pulling and running public images
-- Interacting with a running container (`exec`, `logs`)
-
-**Hour 3 — Working with Images & the Docker CLI**
+- Pulling and running public images from Docker Hub
 - Listing, tagging, and inspecting images
-- Image layers and how they are cached
-- Cleaning up images and containers
-- Navigating Docker Hub safely
+- Looking inside a running container with `exec` and `logs`
 
-**Hour 4 — Writing Your First Dockerfile**
+**Hour 5 — Writing Your First Dockerfile**
 - Core instructions: `FROM`, `RUN`, `COPY`, `CMD`, `EXPOSE`
 - Building and tagging a custom image
-- Understanding the build context and `.dockerignore`
-- How layer order affects build speed
-
-**Hour 5 — Dockerfiles in Practice**
+- The build context and `.dockerignore`
 - Containerising a sample backend application
-- Environment variables and `ARG` vs `ENV`
-- Exposing ports and defining the start command
-- Image best practices: small, reproducible, predictable
 
 **Hour 6 — Data Persistence: Volumes & Bind Mounts**
 - Why containers are ephemeral and why it matters
@@ -226,11 +231,11 @@ Participants will receive a Certificate of Completion upon successful attendance
 
 ## 10 Tools & Software Required
 
-- Laptop with admin access
-- Docker Engine / Docker Desktop installed
-- Docker Compose
-- A code editor (e.g. VS Code)
-- Terminal / command-line interface
+- Laptop with administrator access (Windows 10/11, macOS, or Linux)
+- Windows: WSL2 with Ubuntu — **installed during Day 1**
+- Docker Desktop (bundles Docker Engine and Docker Compose) — **installed during Day 1**
+- A code editor such as VS Code — installed during setup
+- Stable internet access for downloading tools and images
 - A Linux server or VM (provided or cloud) for the Day 3 deployment lab
 
 ## 11 Expected Outcomes & Impact
