@@ -14,6 +14,7 @@ Malaysia HRDCorp SBL training proposals and course outlines.
 | firebase-ai-fullstack | Firebase Fundamentals: AI-Assisted Fullstack Development | Trainocate / ISKL | draft | 1d / 8h | 2026-05-15 |
 | ai-cli-fundamentals | AI Fundamentals with Gemini CLI: Beginner to Power User | TBC | draft | 1d / 8h | 2026-05-22 |
 | docker-beginner | Docker for Beginners: Containerise, Compose & Deploy Your Own Stack | TBC | adjusted | 3d / 21h | 2026-06-03 |
+| tamingtech-docker-beginner | Docker for Beginner | Taming Tech Sdn Bhd | draft | 3d / 21h | 2026-06-03 |
 
 ## Layout
 
