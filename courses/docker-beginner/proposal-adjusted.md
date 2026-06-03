@@ -14,7 +14,7 @@ This programme gives beginners a complete, hands-on path to running real applica
 
 The course is built around one realistic, recurring scenario: containerising and operating a web stack made of **Nginx, a backend application, a database, and phpMyAdmin** with Docker Compose. Every concept — images, Dockerfiles, volumes, networking, logging, security, backup — is taught in service of getting that stack running, troubleshooting it, securing it, recovering it, and redeploying it without fear.
 
-By the end, participants will not just understand Docker; they will have dockerised an application, composed a multi-service system, deployed it to a server, broken it, fixed it, and restored it from backup.
+By the end, participants will not just understand Docker; they will have dockerised an application, composed a multi-service system, pushed and deployed their own image to a live server, broken it, fixed it, and restored it from backup.
 
 ## 02 Target Audience
 
@@ -64,9 +64,9 @@ Upon completion of the programme, participants will be able to:
 
 - Install and verify WSL2 and Docker Desktop on Windows and run basic terminal commands unaided
 - Describe how the Docker engine, images, containers, and Docker Hub work together
-- Write a Dockerfile to containerise a backend application and build an optimised image
+- Write a Dockerfile to containerise a backend application and build a working image
 - Compose Nginx + backend + database + phpMyAdmin into a single working stack
-- Read container logs and diagnose common failures (port conflicts, crash loops, bad mounts)
+- Read container logs and diagnose common failures (port conflicts, containers that won't start, bad mounts)
 - Configure restart policies and healthchecks so services recover automatically
 - Harden a deployment using non-root users, minimal images, and managed secrets
 - Back up a database and named volumes, then restore them on a fresh environment
@@ -201,23 +201,23 @@ Upon completion of the programme, participants will be able to:
 - Restoring data onto a fresh stack
 - Planning regular backups
 
-**Hour 5 — Deploying to Your Own Server**
-- Preparing a Linux server (install Docker & Compose)
-- Transferring the project and managing secrets on the server
-- Bringing the stack up and surviving reboots
-- Confirming the deployment is healthy
+**Hour 5 — Deploying Your Image to a Live Server**
+- Tagging and pushing your image to Docker Hub (`docker login`, `push`)
+- Connecting to the shared training server over SSH
+- Pulling and running your image on your own assigned port
+- Opening your app at the server's address and confirming it's healthy
 
 **Hour 6 — Redeploy & Maintenance Without Fear**
-- The safe redeploy workflow: rebuild, pull, restart
-- Rolling back a bad release
+- The safe redeploy workflow on the server: rebuild, push, pull, restart
+- Rolling back to a previous image tag
 - Pruning unused images and volumes
-- Checking the stack is healthy (`docker ps`, `docker stats`, logs)
+- Checking your container is healthy (`docker ps`, `docker stats`, logs)
 
 **Hour 7 — Final Project: Dockerise & Deploy Your Own Stack**
-- Dockerise and compose an application of your choice
-- Deploy it, then troubleshoot and restart under guidance
-- Restore it from a backup to prove recoverability
-- Present your stack and wrap-up
+- Dockerise an application of your choice (a starter app is provided if you don't have one)
+- Push and deploy your own image variant to the shared server
+- Troubleshoot, restart, and restore it from a backup to prove recoverability
+- Present your deployment and wrap-up
 
 ## 08 Assessment Method
 
@@ -236,7 +236,8 @@ Participants will receive a Certificate of Completion upon successful attendance
 - Docker Desktop (bundles Docker Engine and Docker Compose) — **installed during Day 1**
 - Visual Studio Code with the WSL extension (launched from WSL with `code .`) — installed during setup
 - Stable internet access for downloading tools and images
-- A Linux server or VM (provided or cloud) for the Day 3 deployment lab
+- A shared Linux server (provided by the trainer) for the Day 3 deployment lab — each participant deploys their own image to it
+- A free Docker Hub account (for pushing your image)
 
 ## 11 Expected Outcomes & Impact
 

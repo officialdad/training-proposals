@@ -62,3 +62,15 @@ Feedback: don't teach much Linux — just the terminal needed to drive Docker �
 - **Day 1 Hour 1:** added VS Code to the setup (installed and connected to WSL2 alongside Docker Desktop).
 - **Day 1 Hour 2:** renamed "Terminal & Linux Survival Kit" → "Terminal Basics & VS Code for Docker". Dropped general Linux commands (`cat`, `nano`, `cp`/`mv`, `sudo`); kept only what's needed to operate Docker — open a terminal, `cd`/`ls` + paths, run a command and read its output, and open the project in VS Code with `code .`.
 - **Section 10 (Tools):** specified VS Code with the WSL extension (launched via `code .`) as the editor used throughout.
+
+## Review — 3-day public-beginner alignment (2026-06-04)
+
+Brainstormed the proposal against its objectives for a **public** beginner cohort. Content already mapped to all six objectives with no gaps; the misalignments were in *deliverability*, mainly the Day 3 deployment story. Decisions: one **shared** trainer VM (not one per participant) where each deploys their **own image variant**; Day 1 keeps full in-class install.
+
+- **Section 01 / 05:** reflect the real deploy flow (push + deploy your own image to a live server); softened over-promises — "optimised image" → "working image" (multi-stage was deliberately out of scope) and "crash loops" → "containers that won't start".
+- **Day 3 Hour 5:** rewrote "Deploying to Your Own Server" → "Deploying Your Image to a Live Server" — push to Docker Hub, SSH to the shared server, pull and run on your own port, verify. Students no longer install Docker on the server (trainer pre-provisions the shared VM).
+- **Day 3 Hour 6:** redeploy workflow recontextualised to the server (rebuild → push → pull → restart; roll back by image tag).
+- **Day 3 Hour 7 (final project):** deploy your own image variant to the shared server; added "a starter app is provided if you don't have one" so beginners aren't blocked choosing an app.
+- **Section 10 (Tools):** shared trainer-provided server (each deploys their own image) + free Docker Hub account for pushing.
+
+**Residual risks flagged, left unchanged by choice:** Day 1 is dense with zero buffer and installs in-class on mixed BYO laptops (Hour 1 overrun risk); 21 hours fully programmed with no contingency.
