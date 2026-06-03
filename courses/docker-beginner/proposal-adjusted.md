@@ -134,9 +134,9 @@ Upon completion of the programme, participants will be able to:
 ### Day 2: Docker Compose — A Real Multi-Service Stack (7 Hours)
 
 **Hour 1 — Container Networking & Why Compose**
-- Container networking basics and user-defined networks
-- Service-to-service communication by name (DNS)
-- The pain of wiring containers by hand
+- How containers talk to each other over a shared network
+- Reaching another container by its service name (no IP addresses)
+- The pain of wiring a multi-container app by hand
 - Where Docker Compose fits in
 
 **Hour 2 — Docker Compose Fundamentals**
@@ -155,7 +155,7 @@ Upon completion of the programme, participants will be able to:
 - Building the backend service from your Dockerfile in Compose
 - Connecting the backend to the database over the Compose network
 - Configuration via environment variables
-- Healthchecks to confirm the service is ready
+- Reading the backend's logs to confirm it started and connected
 
 **Hour 5 — Nginx as a Reverse Proxy**
 - Adding an Nginx service to the stack
@@ -163,11 +163,11 @@ Upon completion of the programme, participants will be able to:
 - Serving static content and mounting config
 - Exposing the stack on a single public port
 
-**Hour 6 — Compose Operations & Auto-Restart**
-- Restart policies (`always`, `unless-stopped`, `on-failure`)
-- Reading per-service logs and diagnosing issues
-- Rebuilding and redeploying a single service
-- Override files and profiles (brief)
+**Hour 6 — Operating & Updating the Stack**
+- Reading per-service logs and spotting which service failed
+- Rebuilding and redeploying a single service after a change
+- Bringing the whole stack up and down cleanly (`up -d`, `down`)
+- Keeping services running with `restart: unless-stopped`
 
 **Hour 7 — Hands-On Lab: Full Stack with Compose**
 - Assemble Nginx + backend + database + phpMyAdmin in one Compose file
@@ -178,9 +178,9 @@ Upon completion of the programme, participants will be able to:
 ### Day 3: Operate, Secure, Recover & Deploy (7 Hours)
 
 **Hour 1 — Logging & Troubleshooting**
-- `docker logs`, log drivers, and following output
-- Diagnosing crash loops with `inspect` and `exec`
-- Common failures: port conflicts, OOM, bad mounts, missing env
+- `docker logs` and `docker compose logs` to follow what a container is doing
+- Looking inside a stuck container with `inspect` and `exec`
+- Common failures: port already in use, bad mounts, missing environment variables
 - A repeatable troubleshooting checklist
 
 **Hour 2 — Auto-Restart & Self-Healing**
@@ -211,7 +211,7 @@ Upon completion of the programme, participants will be able to:
 - The safe redeploy workflow: rebuild, pull, restart
 - Rolling back a bad release
 - Pruning unused images and volumes
-- Lightweight monitoring of a running stack
+- Checking the stack is healthy (`docker ps`, `docker stats`, logs)
 
 **Hour 7 — Final Project: Dockerise & Deploy Your Own Stack**
 - Dockerise and compose an application of your choice

@@ -44,3 +44,13 @@ Follow-up request: participants are **complete beginners with no command-line or
 - **Section 04 / 05:** Added a setup objective and learning outcome (install/verify WSL2 + Docker Desktop, run basic terminal commands unaided).
 - **Section 07 (Day 1):** Opened with two onboarding hours — **Hour 1 WSL2 & Docker Desktop install**, **Hour 2 terminal & Linux survival kit** — before any Docker theory. Merged the former image-CLI and Dockerfile-practice hours to keep Day 1 at 7 hours; Days 2–3 unchanged. Total stays 3 days / 21 hours.
 - **Section 10 (Tools):** Tools are now installed during Day 1 rather than assumed; named WSL2 + Ubuntu and noted Docker Desktop bundles Compose.
+
+## Review — objective coverage & beginner-fit trim (2026-06-03)
+
+Verified every requested objective maps to outline hours (architecture → D1H3–H4/D2H1–H2; setup+Dockerfile → D1H1/H5; Compose stack → D2H2–H5; logs/troubleshoot/auto-restart → D3H1–H2; security → D3H3; backup/restore → D3H4; deploy/redeploy → D3H5–H6). No gaps. Then trimmed content that was too advanced or redundant for absolute beginners:
+
+- **Day 2 Hour 1:** dropped "user-defined networks" and the DNS jargon — beginners only need "containers reach each other by service name".
+- **Day 2 Hour 4:** replaced a premature healthcheck bullet with reading the backend's logs; healthchecks are now taught once, in depth, on Day 3.
+- **Day 2 Hour 6:** retitled "Operating & Updating the Stack"; removed "override files and profiles" (unnecessary for beginners) and the duplicate restart-policy block, keeping one practical `restart: unless-stopped` line.
+- **Day 3 Hour 1:** removed "log drivers" and OOM/crash-loop jargon in favour of plain, common failure cases.
+- **Day 3 Hour 6:** made monitoring concrete (`docker ps`, `docker stats`, logs) instead of an abstract "lightweight monitoring" line.
