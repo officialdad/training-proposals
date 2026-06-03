@@ -54,3 +54,11 @@ Verified every requested objective maps to outline hours (architecture → D1H3�
 - **Day 2 Hour 6:** retitled "Operating & Updating the Stack"; removed "override files and profiles" (unnecessary for beginners) and the duplicate restart-policy block, keeping one practical `restart: unless-stopped` line.
 - **Day 3 Hour 1:** removed "log drivers" and OOM/crash-loop jargon in favour of plain, common failure cases.
 - **Day 3 Hour 6:** made monitoring concrete (`docker ps`, `docker stats`, logs) instead of an abstract "lightweight monitoring" line.
+
+## Review — terminal scope & editor (2026-06-03)
+
+Feedback: don't teach much Linux — just the terminal needed to drive Docker — and use a proper editor (VS Code) launched from WSL.
+
+- **Day 1 Hour 1:** added VS Code to the setup (installed and connected to WSL2 alongside Docker Desktop).
+- **Day 1 Hour 2:** renamed "Terminal & Linux Survival Kit" → "Terminal Basics & VS Code for Docker". Dropped general Linux commands (`cat`, `nano`, `cp`/`mv`, `sudo`); kept only what's needed to operate Docker — open a terminal, `cd`/`ls` + paths, run a command and read its output, and open the project in VS Code with `code .`.
+- **Section 10 (Tools):** specified VS Code with the WSL extension (launched via `code .`) as the editor used throughout.

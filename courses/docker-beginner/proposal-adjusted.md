@@ -92,14 +92,14 @@ Upon completion of the programme, participants will be able to:
 **Hour 1 — Getting Started on Windows: WSL2 & Docker Desktop**
 - What WSL2 is and why Windows needs it to run Docker
 - Turning on WSL2 and installing Ubuntu (guided, step by step)
-- Installing Docker Desktop and connecting it to WSL2
+- Installing Docker Desktop and VS Code, connected to your WSL2 Ubuntu
 - Verifying everything with `docker run hello-world`
 
-**Hour 2 — Terminal & Linux Survival Kit (for absolute beginners)**
-- What the command line is and how to open a terminal
-- Moving around: `pwd`, `ls`, `cd`, and how file paths work
-- Working with files: `cat`, `nano`, copying, moving, and `sudo`
-- Reading command output and recovering from typos and errors
+**Hour 2 — Terminal Basics & VS Code for Docker**
+- Opening a terminal and running your first command
+- Finding your way: `cd`, `ls`, and how file paths work
+- Running a Docker command and reading its output (fixing typos)
+- Opening your project in VS Code from WSL with `code .`
 
 **Hour 3 — Containerisation & Docker Architecture**
 - Why containers? Problems they solve vs installing software directly
@@ -234,7 +234,7 @@ Participants will receive a Certificate of Completion upon successful attendance
 - Laptop with administrator access (Windows 10/11, macOS, or Linux)
 - Windows: WSL2 with Ubuntu — **installed during Day 1**
 - Docker Desktop (bundles Docker Engine and Docker Compose) — **installed during Day 1**
-- A code editor such as VS Code — installed during setup
+- Visual Studio Code with the WSL extension (launched from WSL with `code .`) — installed during setup
 - Stable internet access for downloading tools and images
 - A Linux server or VM (provided or cloud) for the Day 3 deployment lab
 
