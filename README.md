@@ -16,6 +16,7 @@ Malaysia HRDCorp SBL training proposals and course outlines.
 | docker-beginner | Docker for Beginners: Containerise, Compose & Deploy Your Own Stack | TBC | adjusted | 3d / 21h | 2026-06-03 |
 | tamingtech-docker-beginner | Docker for Beginner | Taming Tech Sdn Bhd | draft | 3d / 21h | 2026-06-03 |
 | google-workspace-automation | Google Workspace Automation: No-Code Workflows with Studio, Gemini & Apps Script | Trainocate / ISKL | draft | 1d / 8h | 2026-06-04 |
+| claude-cowork-automation | Claude Cowork: AI Agent Automation for Everyday Knowledge Work | Trainocate / ISKL | draft | 1d / 8h | 2026-06-05 |
 
 ## Layout
 
