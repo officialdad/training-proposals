@@ -18,8 +18,6 @@ This 2-hour, hands-on workshop is built for practising full stack developers. Ra
 
 Participants leave with a working, portable skill committed to their repo, and the technique to author more — turning their team's hard-won conventions into capabilities any agent can pick up.
 
-> **Delivery note:** This is a non-HRDC technical workshop. It is agent-agnostic: each participant uses an AI coding agent that supports `SKILL.md` (Claude Code, Codex CLI, Gemini CLI, GitHub Copilot in VS Code, or Cursor), installed before the session. A free option will be recommended for anyone without one. No certification-for-funding is attached; a Certificate of Participation is optional.
-
 ## 02 Target Audience
 
 **By Designation**
