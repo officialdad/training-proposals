@@ -33,22 +33,11 @@ This 1-hour, demo-led session shows that agentic loop on a real codebase. The tr
 
 ## 04 Course Objectives
 
-At the end of this session, participants will be able to:
-
-1. Explain how agentic coding differs from autocomplete — the plan–act–observe loop
-2. Run Claude Code to investigate and explain unfamiliar code
-3. Delegate a change end-to-end — plan, edit, test, fix — and review the diff before accepting it
-4. Steer the agent with `CLAUDE.md`, plan mode and safe permission boundaries
-5. Identify which of their own tasks are worth delegating
+At the end of this session, participants will be able to run Claude Code as an agentic coding tool on a real repository — understanding unfamiliar code, taking a change end-to-end (plan, edit, test, fix, review the diff), steering it safely with `CLAUDE.md`, plan mode and permission boundaries, and judging which of their own tasks are worth delegating.
 
 ## 05 Learning Outcomes
 
-Upon completion of the session, participants will be able to:
-
-- Judge which tasks are worth delegating to an agent and which add risk
-- Use plan mode and `CLAUDE.md` to get predictable results
-- Review an agent's diff critically before committing it
-- Keep secrets and customer data safe, and avoid common failure modes
+Upon completion of the session, participants will be able to run Claude Code as an agentic coding tool on a real repository — understanding unfamiliar code, taking a change end-to-end (plan, edit, test, fix, review the diff), steering it safely with `CLAUDE.md`, plan mode and permission boundaries, and judging which of their own tasks are worth delegating.
 
 ## 06 Training Methodology
 
