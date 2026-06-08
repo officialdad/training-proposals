@@ -58,7 +58,7 @@ Upon completion of the session, participants will be able to run Claude Code as 
 | 0:10 – 0:25 | **Demo 1 — Understand a Codebase** | Explaining unfamiliar code, tracing a request flow, answering "where is X handled?" — the fast path to onboarding onto a large payments codebase. |
 | 0:25 – 0:42 | **Demo 2 — A Change, End-to-End** | A real task taken through plan mode → edit → run tests → read failures → fix → prepared commit. Watching the agentic loop close. |
 | 0:42 – 0:52 | **Steering & Safety** | The levers that make it reliable and safe: `CLAUDE.md` project memory, precise task framing, plan mode, diff review, permission modes and secret hygiene. |
-| 0:52 – 1:00 | **Adopt It & Q&A** | Good first tasks, pitfalls to avoid, where it fits the workflow. Open Q&A mapped to EzyPay's stack. |
+| 0:52 – 1:00 | **Adopt It & Q&A** | Good first tasks, pitfalls to avoid, where it fits the workflow, plus how teams extend and standardise Claude Code with plugins (skills, slash commands, subagents, hooks and MCP from the official marketplace — e.g. the community *Superpowers* framework; vet third-party plugins before use on production code). Open Q&A mapped to EzyPay's stack. |
 
 ## 08 Tools & Software Required
 
