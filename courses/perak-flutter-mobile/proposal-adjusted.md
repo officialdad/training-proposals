@@ -1,292 +1,509 @@
-# Cross-Platform Mobile App Development with Flutter: REST API Integration, Authentication, CRUD & Release Build Preparation
+# Revised Training Proposal
 
-**TRAINING PROPOSAL** — Pejabat SUK Negeri Perak — Bahagian Digital (BO)
+## Cross-Platform Mobile App Development with Flutter
 
-- **Duration:** 4 Days · 28 Hours
-- **Classification:** Digital Skills
-- **Prepared for Review:** July 2026
+**Flutter Fundamentals, REST API Integration, Authentication, CRUD & Release Build Preparation**
+
+- **Prepared for:** Pejabat SUK Negeri Perak / Bahagian Digital
+- **Duration:** 4 Days
+- **Total Training Hours:** 28 Hours
+- **Training Mode:** Instructor-led, hands-on, project-based
+- **Target Participants:** ICT Officers, PHP/Web Developers, System Analysts, Application Developers
+- **Maximum Participants:** 12 pax
 
 ---
 
-## 01 Course Overview
+## 1. Course Overview
 
-This programme gives the officers and ICT personnel of Bahagian Digital a complete, hands-on path from web development to mobile: building real Android and iOS applications with Flutter from a single codebase. It is designed for an audience that already builds and maintains PHP web applications but is new to mobile and to Dart — the programme bridges from familiar concepts (requests, responses, JSON, CRUD) to the mobile client side, then moves quickly into building, integrating, securing, and shipping a working app.
+This programme is designed to introduce participants to professional cross-platform mobile application development using Flutter. Participants will learn how to build Android and iOS mobile applications from a single codebase.
 
-The course is built around one realistic, recurring scenario: a **government service mini-app** — secure login, a dashboard, a list of records, record detail, and full create, read, update, and delete. To keep the learning environment stable and identical for every participant, the labs run against a **trainer-provided sample REST API and dataset that mirror a typical PHP / government backend** — so every technique (networking, JSON modelling, token authentication, secure storage, CRUD) transfers directly to the agency's own systems, without depending on production credentials, VPN access, or backend uptime during the class. Live integration with PSUK Perak's actual existing system is available as a separately-scoped add-on.
+The course will cover Flutter fundamentals, Dart programming, UI development, navigation, REST API consumption, authentication flow, CRUD operations, session handling, and mobile release build preparation.
 
-The programme closes the loop most courses skip: taking the finished app to **release-build readiness** — a signed Android App Bundle uploaded to a Play Console internal-testing track, and an iOS archive distributed through TestFlight. Public Google Play and Apple App Store approval — which involves organisational governance, privacy, legal, and platform review beyond a four-day technical course — sits outside the base scope and is covered as a guided overview. By the end, participants will have built an authenticated CRUD application driven by REST APIs and taken it through signed release builds and test-track distribution on both platforms.
+The training will be conducted using a trainer-prepared mini project, trainer-provided REST API, and controlled sample dataset. This ensures a smooth learning experience without depending on the client's internal system, production API, staging server, credentials, VPN, or backend readiness.
 
-## 02 Target Audience
+Participants will complete a government-themed mini application during the training.
 
-**By Designation**
-- Application Developers & Software Engineers (web/PHP background)
-- ICT Officers (Pegawai Teknologi Maklumat) and Assistant ICT Officers
-- System Analysts and Technical Leads delivering government applications
-- Developers responsible for digital services and internal systems
-- Web developers moving into mobile application delivery
+## 2. Revised Scope Positioning
 
-**By Industry**
-- Government & Public Sector (state and federal agencies)
-- GLCs and statutory bodies
-- Technology & IT services
-- Any organisation extending existing web systems to mobile
+This training focuses on teaching participants how to build a Flutter mobile application and consume REST APIs using a controlled training environment.
 
-## 03 Entry Requirements
+The training does not include integration with PSUK Perak's actual existing PHP system, internal backend, production database, staging server, or real government API.
 
-- **No prior Flutter, Dart, or mobile development experience required** — the programme builds Dart and Flutter from first principles
-- Working knowledge of programming and web development (the audience builds and maintains PHP web applications); comfort with variables, functions, loops, and classes is assumed
-- Familiarity with REST/HTTP concepts and JSON is an advantage (reinforced during the programme)
-- Comfortable editing files, using a code editor, and running commands in a terminal
-- **No access to the agency's internal systems is required** — all integration and CRUD labs use a trainer-provided sample REST API and dataset
-- **For iOS builds and TestFlight distribution:** a Mac running macOS with Xcode and an **Apple Developer Program** account (USD 99/year) is required; participants on Windows-only laptops can complete all Android work and follow the iOS portion as a guided walkthrough
-- Minimum 8 GB RAM (16 GB recommended) and at least 15 GB free disk space (Android SDK, emulators, and Flutter tooling)
-- Stable internet connection for downloading the SDK, packages, and emulator images
+Participants will still learn the technical concepts needed for real-world mobile integration, but the hands-on exercises will use trainer-controlled APIs and sample data prepared specifically for learning purposes.
 
-## 04 Course Objectives
+This approach ensures:
 
-At the end of this programme, participants will be able to:
+- consistent learning environment for all participants
+- reduced technical risk during training
+- no dependency on internal government systems
+- no exposure of confidential data
+- faster troubleshooting
+- better focus on Flutter and mobile development concepts
 
-1. Set up a complete Flutter development environment and run apps on Android and iOS
-2. Write Dart and build Flutter user interfaces using widgets, layouts, navigation, and forms
-3. Manage application state and structure a multi-screen Flutter application
-4. Integrate a Flutter app with a REST API — using a trainer-provided sample backend that mirrors a typical PHP / government API — parsing JSON into typed models
-5. Implement token-based authentication and secure session handling against the training API
-6. Build a complete CRUD workflow (create, read, update, delete) driven by REST API calls
-7. Produce signed Android and iOS release builds and distribute them through Play Console internal testing and TestFlight
+## 3. Course Objectives
 
-## 05 Learning Outcomes
+At the end of the programme, participants will be able to:
 
-Upon completion of the programme, participants will be able to:
+1. Understand the fundamentals of Dart programming for Flutter development.
+2. Build Flutter user interfaces using widgets, layouts, forms, and navigation.
+3. Structure a Flutter project in a clean and maintainable way.
+4. Consume REST APIs from a Flutter mobile application.
+5. Parse JSON responses into Dart model classes.
+6. Implement login and session flow using a trainer-provided authentication API.
+7. Build CRUD features including create, read, update, and delete records.
+8. Handle loading states, empty states, error states, and API failures.
+9. Prepare Android release builds such as APK and AAB.
+10. Prepare iOS release builds up to archive and TestFlight upload.
+11. Understand the app handover point before public store approval.
 
-- Install and verify a Flutter toolchain and run an app on an emulator, simulator, and physical device
-- Write Dart confidently, mapping its syntax and async model onto existing PHP knowledge
-- Compose Flutter UIs from widgets — layouts, lists, forms, and multi-screen navigation
-- Manage state across a multi-screen app and structure a clean, maintainable project
-- Call a REST API from Flutter, parse JSON into typed models, and render live data — with techniques that transfer directly to the agency's own PHP backends
-- Implement a token-based login, store the token securely, and protect authenticated screens
-- Build a full create/read/update/delete flow driven entirely by REST API calls
-- Produce signed Android and iOS release builds and distribute them through Play Console internal testing and TestFlight
+## 4. Mini Project
 
-## 06 Training Methodology
+**Government Service Mini App**
 
-| Method | Description |
-|---|---|
-| **Instructor-Led Technical Sessions** | Expert-facilitated sessions with technical depth |
-| **Hands-On Lab Exercises** | Minimum 70% practical application throughout |
-| **Live Demonstrations** | Real-time walkthroughs of tools and deployments |
-| **Real-World Deployment Scenarios** | Industry-relevant use cases for applied learning |
-| **Guided Lab Environments** | Structured environments for safe hands-on practice |
-| **Trainer Observation & Feedback** | Continuous feedback and technical validation |
+The hands-on project will be a sample government-themed mobile application prepared by the trainer.
 
-## 07 Course Outline
+Suggested project:
 
-*4-day programme · 28 hours of intensive, hands-on learning*
+**Government Asset / Request Management App**
 
-### Day 1: Dart, Flutter Foundations & UI Building (7 Hours)
+Core features:
 
-**Hour 1 — Environment Setup for Flutter**
-- Installing the Flutter SDK, Dart, and Android Studio / VS Code
-- Setting up an Android emulator and iOS simulator (Xcode on macOS)
-- Verifying with `flutter doctor` and running the starter app
-- Project anatomy: `pubspec.yaml`, `lib/`, and the Flutter CLI
+- Login screen
+- Dashboard screen
+- List of records
+- Record detail screen
+- Add new record
+- Edit existing record
+- Delete record
+- Profile/session screen
+- Logout
+- REST API integration
+- Error handling
+- Android release build
+- iOS archive/TestFlight walkthrough
 
-**Hour 2 — Dart Essentials for PHP Developers**
-- Dart syntax mapped from PHP: variables, types, functions, classes
-- Null safety, `final`/`const`, and strong typing
-- Asynchronous code with `Future`, `async`/`await`
-- Collections, maps, and the pub.dev package ecosystem
+The purpose of this mini project is to simulate a realistic government mobile application workflow without connecting to the client's actual internal system.
 
-**Hour 3 — How Flutter Works: Widgets & the Widget Tree**
-- Everything is a widget: `StatelessWidget` vs `StatefulWidget`
-- The `build` method and the widget tree
-- Hot reload and hot restart for fast iteration
-- `MaterialApp`, `Scaffold`, and the app skeleton
+## 5. Training Methodology
 
-**Hour 4 — Building Layouts**
-- Core widgets: Text, Image, Icon, Button
-- Layout widgets: Container, Row, Column, Padding, Expanded
-- Lists with `ListView` and `ListView.builder`, and card-based UI
-- Styling, themes, and responsive basics
+The training will use a hands-on, project-based approach.
 
-**Hour 5 — Handling Input & Forms**
-- `TextField`, `Form`, and `TextFormField`
-- Form validation and controllers
-- Buttons, gestures, and user feedback (SnackBar, dialogs)
-- Capturing and reading user input
+The method includes:
 
-**Hour 6 — Navigation & App Structure**
-- `Navigator`: push and pop between screens
-- Named routes and passing data between screens
-- Tabs, drawers, and bottom navigation
-- Structuring a multi-screen app: separating UI, model, service, and helper files
+- instructor-led explanation
+- live coding demonstration
+- guided hands-on lab exercises
+- trainer-prepared source code
+- trainer-prepared API and dataset
+- debugging and troubleshooting guidance
+- mini project completion
+- final build preparation
+- Q&A and technical discussion
 
-**Hour 7 — Hands-On Lab: Build a Multi-Screen UI**
-- Scaffold the multi-screen shell for the government mini-project
-- Build a login screen, dashboard, and a record-list screen (static data)
-- Wire navigation between screens
-- Apply a consistent theme
+The course will prioritize practical implementation. Participants will progressively build the application from Day 1 until Day 4.
 
-### Day 2: REST API, JSON, Models & Data Display (7 Hours)
+## 6. Detailed Course Outline
 
-**Hour 1 — Managing State in Flutter**
-- `setState` and the `StatefulWidget` lifecycle
-- Lifting state up and passing data down
-- A simple state management approach (Provider)
-- When to reach for state management
+### Day 1: Dart, Flutter Foundations & UI Development
 
-**Hour 2 — REST APIs from the Client Side**
-- REST fundamentals recap: GET, POST, PUT/PATCH, DELETE, headers, status codes
-- The `http` package: making requests from Flutter
-- Request headers, query parameters, and JSON bodies
-- Testing endpoints with Postman / browser tools before wiring them in
+**Module 1: Flutter Development Environment**
 
-**Hour 3 — Working with JSON & Models**
-- Parsing JSON responses into Dart objects
-- Building model classes with `fromJson` / `toJson`
-- Mapping API fields to a typed model, handling nullable and list responses
-- Organising an API service / data layer
+- Flutter SDK overview
+- Android Studio / VS Code setup
+- Flutter doctor
+- Emulator and physical device setup
+- Project structure
+- Running the first Flutter app
 
-**Hour 4 — Fetching & Displaying Data (Read)**
-- Calling a GET endpoint and awaiting the response
-- `FutureBuilder` to render asynchronous data
-- Rendering a list of records from the API
-- Loading, empty, and error states
+**Module 2: Dart Essentials for Web/PHP Developers**
 
-**Hour 5 — Detail Views & Pull-to-Refresh**
-- Fetching a single record by ID
-- Passing data to a detail screen
-- Pull-to-refresh and re-fetching
-- Caching basics and avoiding redundant calls
+- Variables and data types
+- Functions
+- Classes and objects
+- Null safety
+- Lists and maps
+- Async / await
+- Futures
+- Basic error handling
 
-**Hour 6 — Configuration, Environments & Networking Concerns**
-- Base URLs and per-environment configuration (dev/staging/prod)
-- Connecting to the training REST API from an emulator/device
-- Timeouts, exception handling, and common networking pitfalls
-- Centralising the API client
+**Module 3: Flutter Widget Fundamentals**
 
-**Hour 7 — Hands-On Lab: Read Live Data from the REST API**
-- Connect the app to the trainer-provided sample REST API
-- Fetch and display a real list of government-themed records
-- Build a detail screen for a selected record
-- Handle loading and error states gracefully
+- StatelessWidget
+- StatefulWidget
+- Widget tree
+- Build method
+- Hot reload and hot restart
+- MaterialApp and Scaffold
+- Common UI widgets
 
-### Day 3: Authentication, Secure Session & CRUD (7 Hours)
+**Module 4: Layout and UI Building**
 
-**Hour 1 — Authentication Concepts for Mobile**
-- Token-based auth (JWT) vs PHP session cookies
-- The login flow: credentials → token → authenticated requests
-- How the same flow maps onto the agency's existing PHP backend
-- Designing the login screen and flow
+- Container
+- Row and Column
+- Padding and margin
+- Expanded and Flexible
+- ListView
+- Card-based UI
+- Buttons
+- TextField and forms
 
-**Hour 2 — Implementing Login**
-- Posting credentials to the auth endpoint
-- Receiving and parsing the token
-- Sending the token in the `Authorization` header
-- Handling invalid credentials and errors
+**Module 5: Navigation and App Structure**
 
-**Hour 3 — Secure Token Storage & Session**
-- Persisting the token securely with `flutter_secure_storage`
-- Keeping the user logged in across app launches
-- Checking the session during app startup
-- Logout, clearing the session, and protecting authenticated screens
+- Screen navigation
+- Passing data between screens
+- App folder structure
+- Separating UI, model, service, and helper files
 
-**Hour 4 — Create & Update (CRUD: C + U)**
-- Building a form to create a new record (POST)
-- Editing an existing record (PUT/PATCH)
-- Form validation before submission
-- Optimistic UI and confirming server success
+**Day 1 Hands-On Lab**
 
-**Hour 5 — Delete & List Refresh (CRUD: D)**
-- Deleting a record (DELETE) with a confirmation dialog
-- Refreshing the list after create, update, and delete
-- Handling partial failures and retries
-- Keeping local and server state in sync
+Participants will build:
 
-**Hour 6 — Robust Error Handling & UX Polish**
-- Centralised error handling and user-friendly messages
-- Handling expired tokens and re-authentication
-- Loading indicators, disabled states, and feedback
-- Input validation aligned with backend rules
+- app shell
+- login UI
+- dashboard UI
+- record list UI
+- navigation between screens
 
-**Hour 7 — Hands-On Lab: Full CRUD Government Mini-Project**
-- Complete the authenticated CRUD flow end to end
-- Create, read, update, and delete records via the REST API
-- Enforce login and protect authenticated screens
-- Validate inputs and surface clear error messages
+### Day 2: REST API, JSON, Models & Data Display
 
-### Day 4: App Polish, Android Release Build & iOS TestFlight Preparation (7 Hours)
+**Module 1: REST API Fundamentals**
 
-**Hour 1 — App Identity, Icons & Splash**
-- App name, package/bundle identifier, and versioning
-- Launcher icons and splash screen
-- Final theming and UI polish
-- Preparing assets and environment configuration for release
+- What is REST API
+- HTTP methods: GET, POST, PUT/PATCH, DELETE
+- Request and response flow
+- Headers
+- Status codes
+- JSON format
+- API testing using Postman or browser tools
 
-**Hour 2 — Useful Device Capabilities**
-- App permissions on Android and iOS
-- Common plugins (image picker, local notifications) overview
-- Reading device and platform information
-- Keeping platform differences in mind
+**Module 2: Calling APIs from Flutter**
 
-**Hour 3 — Preparing for Release: Android**
-- Release versus debug builds
-- App signing and the keystore
-- Configuring `build.gradle` for release
-- Common Android build issues and how to resolve them
+- Using HTTP client package
+- Creating an API service class
+- Setting base URL
+- Making GET requests
+- Handling success and failure responses
+- Timeout and exception handling
 
-**Hour 4 — Android Release & Play Console Internal Testing**
-- Building a release APK and an Android App Bundle (`flutter build appbundle`)
-- Google Play Console overview and the internal-testing track
-- Uploading a build for internal testing and inviting testers
-- What public production approval involves — guided overview (out of base scope)
+**Module 3: JSON to Dart Model**
 
-**Hour 5 — Preparing for Release: iOS**
-- Xcode signing, certificates, and provisioning profiles
-- Bundle identifier and capabilities
-- Building an iOS archive (`flutter build ipa`)
-- Apple Developer Program requirements
+- Creating model classes
+- fromJson and toJson
+- Mapping API response to UI
+- Handling nullable fields
+- Handling list responses
 
-**Hour 6 — iOS Archive & TestFlight Distribution**
-- Archiving the app in Xcode and exporting an IPA
-- App Store Connect setup and the build upload
-- Distributing a build to testers via TestFlight
-- What public App Review involves — guided overview (out of base scope)
+**Module 4: Displaying API Data**
 
-**Hour 7 — Final Project: Ship to Internal Testing & TestFlight**
-- Produce signed release builds for Android and iOS
-- Upload the Android build to a Play Console internal-testing track
-- Distribute the iOS build via TestFlight
-- Present the completed app and review a production-readiness checklist
+- Loading data from API
+- Displaying list of records
+- Detail screen from API data
+- Loading indicator
+- Empty state
+- Error state
+- Pull-to-refresh
 
-## 08 Assessment Method
+**Day 2 Hands-On Lab**
 
-- Continuous lab exercises across all four days
-- Trainer observation and technical validation
-- Final hands-on project: an authenticated CRUD app integrated with a REST API and taken to signed release-build and test-track distribution readiness
+Participants will build:
 
-## 09 Certification
+- API service layer
+- Dart model class
+- record list from API
+- record detail screen
+- loading and error state handling
 
-Participants will receive a Certificate of Completion upon successful attendance and participation.
+### Day 3: Authentication, Secure Session & CRUD
 
-## 10 Tools & Software Required
+**Module 1: Mobile Authentication Concepts**
 
-- Laptop with administrator access (Windows 10/11, macOS, or Linux) — **macOS required for iOS builds and TestFlight distribution**
-- Flutter SDK and Dart — **installed during Day 1**
-- Android Studio (Android SDK, emulator, and platform tools) — **installed during Day 1**
-- Visual Studio Code with the Flutter and Dart extensions
-- Xcode (macOS only) for the iOS simulator, archives, and TestFlight steps
-- A **trainer-provided sample REST API and dataset** — used for all integration and CRUD labs (no access to the agency's production systems required)
-- A **Google Play Console** developer account (USD 25 one-time) — for the internal-testing upload demonstration (optional)
-- An **Apple Developer Program** account (USD 99/year) — for the iOS archive and TestFlight distribution
-- A physical Android and/or iOS device for on-device testing (optional but recommended)
-- Stable internet access for downloading the SDK, packages, and emulator images
+- Login flow
+- Token-based authentication concept
+- Difference between web session and mobile token
+- Protecting authenticated screens
+- Logout flow
 
-## 11 Expected Outcomes & Impact
+**Module 2: Implementing Login**
 
-| Outcome Area | Expected Impact |
-|---|---|
-| **Cross-Platform Development** | Build a single Flutter codebase that runs on both Android and iOS |
-| **Backend Integration** | Connect mobile apps to PHP/REST backends — skills transfer directly to the agency's own systems |
-| **Authentication & Security** | Implement secure login and protect data with token-based authentication |
-| **CRUD Applications** | Deliver complete create, read, update, and delete government service apps |
-| **Release-Build Readiness** | Produce signed Android and iOS builds and distribute via Play internal testing and TestFlight |
+- Login API call
+- Sending username/email and password
+- Receiving token/session response
+- Handling invalid login
+- Navigating after successful login
+
+**Module 3: Session Handling**
+
+- Storing login state
+- Secure storage concept
+- Keeping user logged in
+- Checking session during app startup
+- Logout and session clearing
+
+**Module 4: Create and Update Records**
+
+- Building create form
+- Form validation
+- Sending POST request
+- Building edit form
+- Sending PUT/PATCH request
+- Showing success and error messages
+
+**Module 5: Delete Records**
+
+- Delete confirmation dialog
+- Sending DELETE request
+- Refreshing list after delete
+- Handling delete failure
+
+**Day 3 Hands-On Lab**
+
+Participants will complete:
+
+- login integration
+- session handling
+- create record
+- edit record
+- delete record
+- refresh list after CRUD actions
+
+### Day 4: App Polish, Android Release Build & iOS TestFlight Preparation
+
+**Module 1: App Finalization**
+
+- App name
+- App icon
+- Splash screen
+- Version number
+- Package name
+- Bundle identifier
+- Environment configuration
+
+**Module 2: Android Release Preparation**
+
+- Debug vs release build
+- Keystore overview
+- Android signing concept
+- Building APK
+- Building AAB
+- Common Android build issues
+- Internal testing upload overview
+
+**Module 3: iOS Release Preparation**
+
+- iOS signing overview
+- Apple Developer account requirement
+- Bundle identifier
+- Xcode archive process
+- Flutter build IPA overview
+- Uploading to App Store Connect
+- TestFlight upload walkthrough
+
+**Module 4: Final Project Review**
+
+- Review completed mini app
+- Code walkthrough
+- Common improvements
+- Production-readiness checklist
+- Q&A session
+
+**Day 4 Hands-On Lab**
+
+Participants will:
+
+- finalize app configuration
+- generate Android release build
+- understand AAB/APK output
+- walk through iOS archive and TestFlight upload process
+- review the completed mini app flow
+
+## 7. Deployment Scope
+
+The deployment module will cover app build preparation and testing distribution readiness.
+
+**Included for Android**
+
+- Generate release APK
+- Generate Android App Bundle / AAB
+- Explain keystore and signing concept
+- Explain Play Console internal testing upload flow
+
+**Included for iOS**
+
+- Explain Apple Developer account requirement
+- Configure bundle identifier
+- Archive iOS app using Xcode
+- Upload build to App Store Connect
+- Distribute via TestFlight
+
+**Not Included**
+
+The following items are excluded from this training scope:
+
+- Google Play production approval process
+- Apple App Store public approval process
+- App rejection troubleshooting
+- Privacy policy preparation
+- Google Play Data Safety form completion
+- Apple privacy nutrition labels
+- Legal or compliance consultation
+- Production rollout strategy
+- Government app compliance review
+- Backend development
+- Modification of client's existing API
+- Integration with PSUK Perak's real production/staging system
+- Debugging client-owned backend issues
+
+The training will bring the app up to release build and testing distribution readiness. Final public store approval remains under the organization's internal governance and platform review process.
+
+## 8. Tools and Software Required
+
+Participants should prepare:
+
+- laptop with administrator access
+- Windows/macOS/Linux for Flutter development
+- macOS device required for iOS archive/TestFlight hands-on
+- Flutter SDK
+- Dart SDK
+- Android Studio
+- Visual Studio Code
+- Xcode for macOS users
+- stable internet connection
+- Android emulator or physical Android device
+- optional physical iOS device
+- Apple Developer account if hands-on TestFlight upload is required
+- Google Play Console access if internal testing upload demonstration is required
+
+The trainer will provide:
+
+- training slides
+- starter Flutter project
+- completed reference Flutter project
+- sample REST API
+- sample dataset
+- lab instructions
+- final checklist
+
+## 9. Assessment Method
+
+Assessment will be based on:
+
+- participation in hands-on labs
+- completion of mini project modules
+- ability to run the Flutter app
+- ability to call REST APIs
+- ability to complete login and CRUD flow
+- final project demonstration
+- trainer observation and Q&A
+
+Participants who attend and complete the hands-on activities will receive a Certificate of Completion.
+
+## 10. Deliverables
+
+The trainer will deliver:
+
+1. 4-day instructor-led training
+2. Training materials/slides
+3. Starter Flutter project
+4. Completed reference Flutter project
+5. Trainer-provided REST API/sample backend
+6. Hands-on lab guide
+7. Android release build walkthrough
+8. iOS TestFlight upload walkthrough
+9. Certificate of Completion template
+10. Limited post-training clarification for training-related questions
+
+## 11. Commercial Proposal
+
+**Training Fee**
+
+This fee covers:
+
+- training preparation
+- trainer-prepared material
+- hands-on source code
+- sample API preparation
+- 4 days training delivery
+- Q&A during training
+- limited post-training clarification
+
+## 12. Optional Add-On
+
+If the client later requires integration with PSUK Perak's actual API or existing internal system, this will be treated as a separate professional service scope and quoted separately.
+
+Possible additional scope:
+
+- API documentation review
+- sandbox testing
+- custom integration exercise
+- authentication flow mapping
+- API troubleshooting
+- backend coordination
+- custom source code adjustment
+
+This is excluded from the base training fee.
+
+## 13. Assumptions
+
+This proposal is based on the following assumptions:
+
+1. Training will use trainer-prepared materials and sample APIs.
+2. No integration with PSUK Perak's real backend system is required.
+3. No backend development is required from the trainer.
+4. No production database access is required.
+5. No confidential government data will be used during training.
+6. Participants will use a controlled sample dataset.
+7. Participants will prepare required software before or during Day 1.
+8. iOS build hands-on requires macOS and Apple Developer access.
+9. Public App Store / Play Store approval is excluded.
+10. The training scope is limited to Flutter application development, REST API consumption, authentication, CRUD, Android release build, and iOS TestFlight readiness.
+
+## 14. Reason for Revising the Original Proposal
+
+The original proposal is not recommended to be accepted as-is because it introduces unnecessary delivery risk and scope dependency.
+
+Key reasons:
+
+**1. Too dependent on client's existing system**
+
+The original proposal is built around integration with the agency's existing PHP systems and REST APIs. This creates dependency on API readiness, credentials, documentation, sandbox availability, backend stability, and network access.
+
+**2. High risk during training delivery**
+
+If the client's API is unavailable, incomplete, unstable, undocumented, or has authentication issues, the training flow may be disrupted even though the issue is outside the trainer's control.
+
+**3. Backend troubleshooting may consume training time**
+
+Participants may end up troubleshooting API, network, credential, VPN, permission, server, or environment issues instead of learning Flutter.
+
+**4. Not suitable for fixed daily training rate**
+
+At a fixed daily training rate, the engagement should remain as structured training. Real system integration, API analysis, and custom backend preparation should be treated as separate consultancy work.
+
+**5. Public app store approval is outside training scope**
+
+Google Play and Apple App Store approval involve legal, policy, privacy, compliance, and organizational governance matters. These should not be included as part of a 4-day Flutter technical training.
+
+**6. Trainer should control the learning environment**
+
+Using trainer-prepared API and dataset ensures every participant gets the same working environment, predictable exercises, and consistent learning outcomes.
+
+**7. Better learning experience for first-time Flutter participants**
+
+Participants who are new to Flutter should first learn the full mobile development flow using a stable and controlled API before attempting integration with actual production systems.
+
+## 15. Final Recommendation
+
+Proceed with a controlled trainer-led Flutter training programme using trainer-prepared materials and APIs.
+
+Do not include real PSUK system integration in the base scope.
+
+Do not include Google Play or Apple App Store public approval in the base scope.
+
+Limit deployment coverage to:
+
+- Android APK/AAB release build generation
+- Google Play internal testing upload overview
+- iOS archive
+- TestFlight upload
+
+This provides a safer, more realistic, and more valuable 4-day training experience for participants.
