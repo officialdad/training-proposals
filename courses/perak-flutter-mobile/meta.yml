@@ -1,11 +1,11 @@
 slug: perak-flutter-mobile
-title: "Cross-Platform Mobile App Development with Flutter: REST API Integration, Authentication & App Store Deployment"
+title: "Cross-Platform Mobile App Development with Flutter: REST API Integration, Authentication, CRUD & Release Build Preparation"
 client: "Pejabat SUK Negeri Perak — Bahagian Digital (BO)"
 source: self
-status: draft
+status: adjusted
 duration_days: 4
 duration_hours: 28
 classification: "Digital Skills"
 prepared_for: "July 2026"
 created: 2026-06-08
-updated: 2026-06-08
+updated: 2026-06-09

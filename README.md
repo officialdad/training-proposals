@@ -19,7 +19,7 @@ Malaysia HRDCorp SBL training proposals and course outlines.
 | claude-cowork-automation | Claude Cowork: AI Agent Automation for Everyday Knowledge Work | Trainocate / ISKL | adjusted | 1d / 8h | 2026-06-05 |
 | agent-skills-skill-md | Authoring Portable AI Agent Skills with SKILL.md | Agmo Academy | draft | 2h | 2026-06-06 |
 | perak-docker-fundamentals | Fundamental Docker for Application Development: Containerisation, Migration & Recovery | Pejabat SUK Negeri Perak — Bahagian Digital (BO) | draft | 3d / 21h | 2026-06-08 |
-| perak-flutter-mobile | Cross-Platform Mobile App Development with Flutter: REST API Integration, Authentication & App Store Deployment | Pejabat SUK Negeri Perak — Bahagian Digital (BO) | draft | 4d / 28h | 2026-06-08 |
+| perak-flutter-mobile | Cross-Platform Mobile App Development with Flutter: REST API Integration, Authentication, CRUD & Release Build Preparation | Pejabat SUK Negeri Perak — Bahagian Digital (BO) | adjusted | 4d / 28h | 2026-06-09 |
 | ezypay-claude-code-overview | Agentic Coding with Claude Code: An Engineer's Overview | EzyPay | draft | 1h | 2026-06-09 |
 
 ## Layout
