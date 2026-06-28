@@ -1,4 +1,4 @@
-# Advanced n8n: Production Automation & AI Engineering for Test Teams
+# Automating Workflows with n8n: Advanced
 
 **TRAINING PROPOSAL** — TBC
 
@@ -10,11 +10,11 @@
 
 ## 01 Course Overview
 
-This two-day advanced programme is designed for technically experienced engineers who are new to n8n but need to reach production-grade automation quickly. Rather than easing in slowly, it leverages participants' existing strengths — scripting, databases, APIs, and containers — to move from first principles to self-hosted, production-ready workflow engineering within a single day, then layers advanced AI automation on top.
+This two-day advanced programme is for technically experienced engineers who are new to n8n but need to reach production-grade automation quickly. It builds on the skills participants already have, such as scripting, databases, APIs, and containers, and moves from first principles to self-hosted workflow engineering within a single day. The second day adds advanced AI automation.
 
-Day 1 builds the foundations on a self-hosted n8n instance and hardens them into production-grade engineering: the Code node for advanced data handling, modular sub-workflows, reliability and error handling at scale, enterprise system integration, and operating n8n with queue mode, versioning, and observability. Day 2 extends these workflows with AI — building agents with tools, memory, and retrieval-augmented generation over internal documentation, secured with Guardrails and Human-in-the-loop controls, tested with Evaluations, and connected to the wider AI ecosystem via MCP (Model Context Protocol).
+Day 1 builds the foundations on a self-hosted n8n instance and takes them to production standard: the Code node for advanced data handling, modular sub-workflows, reliability and error handling at scale, enterprise system integration, and running n8n with queue mode, versioning, and observability. Day 2 extends these workflows with AI. Participants build agents with tools and memory, add retrieval-augmented generation over internal documentation, secure them with Guardrails and Human-in-the-loop controls, test them with Evaluations, and connect n8n to other AI tools through MCP (Model Context Protocol).
 
-Throughout, the course is themed around test and manufacturing data — parsing tester logs, monitoring yield, and triaging failures — and runs entirely on self-hosted infrastructure, keeping sensitive test data and intellectual property in-house. Each day comprises seven hours of instruction with one hour for lunch. No prior n8n or workflow automation experience is required; the fundamentals are covered, but quickly.
+The course is themed around test and manufacturing data, including parsing tester logs, monitoring yield, and triaging failures. It runs entirely on self-hosted infrastructure, so sensitive test data and intellectual property stay in-house. Each day comprises seven hours of instruction with one hour for lunch. No prior n8n or workflow automation experience is required; the fundamentals are covered, but quickly.
 
 ## 02 Target Audience
 
@@ -50,7 +50,7 @@ At the end of this programme, participants will be able to:
 1. Deploy and configure a self-hosted n8n instance using Docker and PostgreSQL
 2. Build advanced data-processing workflows using the Code node (JavaScript and Python) to parse and transform test data
 3. Engineer reliable, modular automations using sub-workflows, error workflows, retries, and batching at scale
-4. Integrate n8n with enterprise systems — databases, REST APIs, and message destinations — and expose workflows as secured API endpoints
+4. Integrate n8n with enterprise systems such as databases, REST APIs, and message destinations, and expose workflows as secured API endpoints
 5. Scale and operate n8n in production using queue mode, workflow versioning, and observability
 6. Build AI agents with tools, memory, and retrieval-augmented generation over internal documentation, secured with Guardrails and Human-in-the-loop controls
 7. Test AI workflows with Evaluations and connect n8n to the wider AI ecosystem via MCP
@@ -112,7 +112,7 @@ Upon completion of the programme, participants will be able to:
 **Hour 4 — Modular & Reusable Workflows**
 
 - Execute Sub-workflow node: passing data, input schemas, wait vs async execution
-- Designing reusable components — shared parsers and notifiers
+- Designing reusable components such as shared parsers and notifiers
 - Chunked and looped processing with the Loop Over Items (Split in Batches) node
 - Extending n8n with community and custom nodes (overview)
 
@@ -203,19 +203,19 @@ Participants will receive a Certificate of Completion upon successful attendance
 ## 10 Tools & Software Required
 
 - Docker and Docker Compose (laptop with administrator rights to run containers)
-- Self-hosted n8n (Community Edition, n8n 2.0+) — provided as a Docker Compose stack
+- Self-hosted n8n (Community Edition, n8n 2.0+), provided as a Docker Compose stack
 - PostgreSQL and Redis (run locally via Docker Compose)
-- A vector store for the RAG module — Qdrant or PostgreSQL with PGVector (via Docker)
+- A vector store for the RAG module: Qdrant or PostgreSQL with PGVector (via Docker)
 - OpenAI API key or Anthropic API key (for AI Agent, embeddings, and RAG modules)
 - Web browser: Chrome or Firefox (latest version)
-- Claude Desktop or Cursor (optional — for the MCP server demo in Hour 12)
+- Claude Desktop or Cursor (optional, for the MCP server demo in Hour 12)
 - Slack or email account (for notification and Human-in-the-loop exercises)
 
 ## 11 Expected Outcomes & Impact
 
 | Outcome Area | Expected Impact |
 |---|---|
-| Operational Efficiency | Automated collection, parsing, and reporting of test data, reducing manual, repetitive engineering effort |
+| Operational Efficiency | Automated collection, parsing, and reporting of test data, so engineers spend less time on manual, repetitive work |
 | Reliability & Scale | Production-grade, self-healing workflows that handle high-volume test data with error recovery and queue-based scaling |
 | System Integration | Testers, MES, databases, and internal APIs connected without bespoke integration code |
 | Data Sovereignty | Self-hosted, on-premises deployment that keeps sensitive test data and intellectual property in-house |
