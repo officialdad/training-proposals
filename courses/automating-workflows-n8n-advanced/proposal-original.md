@@ -12,7 +12,7 @@
 
 This two-day advanced programme is for technically experienced engineers who are new to n8n but need to reach production-grade automation quickly. It builds on the skills participants already have, such as scripting, databases, APIs, and containers, and moves from first principles to self-hosted workflow engineering within a single day. The second day adds advanced AI automation.
 
-Day 1 builds the foundations on a self-hosted n8n instance and takes them to production standard: the Code node for advanced data handling, modular sub-workflows, reliability and error handling at scale, enterprise system integration, and running n8n with queue mode, versioning, and observability. Day 2 extends these workflows with AI. Participants build agents with tools and memory, add retrieval-augmented generation over internal documentation, secure them with Guardrails and Human-in-the-loop controls, test them with Evaluations, and connect n8n to other AI tools through MCP (Model Context Protocol).
+Day 1 builds the foundations on a self-hosted n8n instance and takes them to production standard: the Code node for advanced data handling, modular sub-workflows, reliability and error handling at scale, enterprise system integration, and workflow versioning. Day 2 extends these workflows with AI. Participants build agents with tools and memory, add retrieval-augmented generation over internal documentation, secure them with Guardrails and Human-in-the-loop controls, test them with Evaluations, and connect n8n to other AI tools through MCP (Model Context Protocol).
 
 The course is themed around test and manufacturing data, including parsing tester logs, monitoring yield, and triaging failures. It runs entirely on self-hosted infrastructure, so sensitive test data and intellectual property stay in-house. Each day comprises seven hours of instruction with one hour for lunch. No prior n8n or workflow automation experience is required; the fundamentals are covered, but quickly.
 
@@ -51,7 +51,7 @@ At the end of this programme, participants will be able to:
 2. Build advanced data-processing workflows using the Code node (JavaScript and Python) to parse and transform test data
 3. Engineer reliable, modular automations using sub-workflows, error workflows, retries, and batching at scale
 4. Integrate n8n with enterprise systems such as databases, REST APIs, and message destinations, and expose workflows as secured API endpoints
-5. Scale and operate n8n in production using queue mode, workflow versioning, and observability
+5. Operate and maintain a self-hosted n8n instance using error notifications, execution logs, and workflow versioning
 6. Build AI agents with tools, memory, and retrieval-augmented generation over internal documentation, secured with Guardrails and Human-in-the-loop controls
 7. Test AI workflows with Evaluations and connect n8n to the wider AI ecosystem via MCP
 
@@ -64,7 +64,7 @@ Upon completion of the programme, participants will be able to:
 - Design modular, reusable workflows with sub-workflows and shared components
 - Apply error workflows, retries, batching, and rate-limiting for reliable automation at scale
 - Connect n8n to databases, REST APIs, and internal systems, and build secured webhook endpoints
-- Operate n8n in production with queue mode, version control, and Prometheus/Grafana observability
+- Maintain a self-hosted n8n instance using execution logs, error notifications, and workflow versioning
 - Build AI agents with tools and memory, and ground them with retrieval-augmented generation over internal documentation
 - Apply Guardrails, Human-in-the-loop approval, and Evaluations to deploy AI automation safely
 - Connect n8n to external AI tools and assistants using MCP, as both client and server
@@ -91,7 +91,7 @@ Upon completion of the programme, participants will be able to:
 **Hour 1 — n8n Foundations on a Self-Hosted Instance**
 
 - Why workflow automation, and why self-host on-premises for sensitive test data and IP
-- Standing up n8n with Docker Compose (n8n + PostgreSQL): core environment configuration
+- Bringing up the provided Docker Compose stack (n8n + PostgreSQL, images pre-pulled) and core environment configuration
 - Interface tour: nodes, connections, triggers, and executions
 - Build a first working workflow from trigger to action
 
@@ -120,15 +120,15 @@ Upon completion of the programme, participants will be able to:
 
 - Pre-built app nodes: Slack, email, and Google Sheets notifications
 - SQL nodes (PostgreSQL / Microsoft SQL Server) for reading and writing test and yield data
-- HTTP Request node with advanced authentication (OAuth2, API key, custom headers)
+- HTTP Request node with advanced authentication (API key and custom headers hands-on; OAuth2 demonstrated)
 - Webhooks and n8n as a secured API backend (Respond to Webhook)
 
-**Hour 6 — Reliability, Scale & Operations**
+**Hour 6 — Reliability & Error Handling**
 
-- Error workflows (Error Trigger): catch, alert, and log failures; retry and exponential backoff
+- Error workflows (Error Trigger): catch a failure, send a notification (Slack/email), and log what went wrong
+- Node-level retries and exponential backoff for transient failures
 - Batching and rate-limiting for high-volume test data
-- Queue mode (Redis + workers), concurrency control, and execution data pruning
-- Workflow versioning (export/import and Git) and observability with Prometheus and Grafana
+- Workflow versioning with export/import for safe, reversible changes
 
 **Hour 7 — Hands-On Lab: End-to-End Test-Data Pipeline (Day 1)**
 
@@ -146,6 +146,7 @@ Upon completion of the programme, participants will be able to:
 - What AI Agent nodes do: the Tools Agent reasoning loop, tool-calling, and system message
 - Connecting an LLM via API (OpenAI or Anthropic Claude); choosing a model
 - When to use an AI Agent vs deterministic IF/Switch logic
+- Chat memory and session keys for multi-turn context (Postgres-backed)
 - Build a first agent that classifies a test-failure description
 
 **Hour 9 — Tool Design for Agents**
@@ -157,9 +158,8 @@ Upon completion of the programme, participants will be able to:
 
 **Hour 10 — RAG over Internal Documentation**
 
-- Self-hosted vector stores (PGVector / Qdrant), embeddings, document loaders, and text splitters
+- The vector store already in your stack (PGVector on the Day-1 Postgres; Qdrant as an alternative), embeddings, document loaders, and text splitters
 - Building a retrieval pipeline with the Question and Answer Chain, or a vector store as an agent tool
-- Chat memory (PostgreSQL / Redis) and session keys for multi-turn context
 - Data-classification considerations before embedding internal documents
 
 **Hour 11 — Safe AI: Guardrails, Human-in-the-Loop & Structured Output**
@@ -203,9 +203,9 @@ Participants will receive a Certificate of Completion upon successful attendance
 ## 10 Tools & Software Required
 
 - Docker and Docker Compose (laptop with administrator rights to run containers)
-- Self-hosted n8n (Community Edition, n8n 2.0+), provided as a Docker Compose stack
-- PostgreSQL and Redis (run locally via Docker Compose)
-- A vector store for the RAG module: Qdrant or PostgreSQL with PGVector (via Docker)
+- Self-hosted n8n (Community Edition, n8n 2.0+), provided as a pre-built Docker Compose stack (images pre-pulled)
+- PostgreSQL (runs locally via Docker Compose; also backs chat memory)
+- A vector store for the RAG module: PGVector on the existing PostgreSQL (Qdrant optional), pre-provisioned in the Compose stack
 - OpenAI API key or Anthropic API key (for AI Agent, embeddings, and RAG modules)
 - Web browser: Chrome or Firefox (latest version)
 - Claude Desktop or Cursor (optional, for the MCP server demo in Hour 12)
@@ -216,7 +216,7 @@ Participants will receive a Certificate of Completion upon successful attendance
 | Outcome Area | Expected Impact |
 |---|---|
 | Operational Efficiency | Automated collection, parsing, and reporting of test data, so engineers spend less time on manual, repetitive work |
-| Reliability & Scale | Production-grade, self-healing workflows that handle high-volume test data with error recovery and queue-based scaling |
+| Reliability & Scale | Self-healing workflows that handle high-volume test data with error recovery, retries, and batching |
 | System Integration | Testers, MES, databases, and internal APIs connected without bespoke integration code |
 | Data Sovereignty | Self-hosted, on-premises deployment that keeps sensitive test data and intellectual property in-house |
 | AI Augmentation | Safe, evaluated AI agents that triage failures and surface documentation knowledge under Human-in-the-loop control |
