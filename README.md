@@ -22,6 +22,7 @@ Malaysia HRDCorp SBL training proposals and course outlines.
 | perak-flutter-mobile | Cross-Platform Mobile App Development with Flutter: REST API Integration, Authentication, CRUD & Release Build Preparation | Pejabat SUK Negeri Perak — Bahagian Digital (BO) | adjusted | 4d / 28h | 2026-06-09 |
 | ezypay-claude-code-overview | Agentic Coding with Claude Code: An Engineer's Overview | EzyPay | draft | 1h | 2026-06-09 |
 | automating-workflows-n8n | Automating Workflows with n8n | TBC | draft | 2d / 14h | 2026-06-26 |
+| automating-workflows-n8n-advanced | Advanced n8n: Production Automation & AI Engineering for Test Teams | TBC | draft | 2d / 14h | 2026-06-28 |
 
 ## Layout
 
