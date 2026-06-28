@@ -21,8 +21,8 @@ Malaysia HRDCorp SBL training proposals and course outlines.
 | perak-docker-fundamentals | Fundamental Docker for Application Development: Containerisation, Migration & Recovery | Pejabat SUK Negeri Perak — Bahagian Digital (BO) | draft | 3d / 21h | 2026-06-08 |
 | perak-flutter-mobile | Cross-Platform Mobile App Development with Flutter: REST API Integration, Authentication, CRUD & Release Build Preparation | Pejabat SUK Negeri Perak — Bahagian Digital (BO) | adjusted | 4d / 28h | 2026-06-09 |
 | ezypay-claude-code-overview | Agentic Coding with Claude Code: An Engineer's Overview | EzyPay | draft | 1h | 2026-06-09 |
-| automating-workflows-n8n | Automating Workflows with n8n | TBC | draft | 2d / 14h | 2026-06-26 |
-| automating-workflows-n8n-advanced | Advanced n8n: Production Automation & AI Engineering for Test Teams | TBC | draft | 2d / 14h | 2026-06-28 |
+| automating-workflows-n8n | Automating Workflows with n8n | TBC | adjusted | 2d / 14h | 2026-06-28 |
+| automating-workflows-n8n-advanced | Automating Workflows with n8n: Advanced | TBC | draft | 2d / 14h | 2026-06-28 |
 
 ## Layout
 
