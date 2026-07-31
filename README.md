@@ -23,6 +23,7 @@ Malaysia HRDCorp SBL training proposals and course outlines.
 | ezypay-claude-code-overview | Agentic Coding with Claude Code: An Engineer's Overview | EzyPay | draft | 1h | 2026-06-09 |
 | automating-workflows-n8n | Automating Workflows with n8n | TBC | adjusted | 2d / 14h | 2026-06-28 |
 | automating-workflows-n8n-advanced | Automating Workflows with n8n: Advanced | TBC | draft | 2d / 14h | 2026-06-28 |
+| docker-crash-course | Docker Crash Course: First Container to Cloud Deploy | TBC | draft | 2d / 14h | 2026-07-31 |
 
 ## Layout
 
