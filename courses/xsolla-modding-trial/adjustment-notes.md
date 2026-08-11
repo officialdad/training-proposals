@@ -1,48 +1,59 @@
 # Adjustment Notes — xsolla-modding-trial
 
-The original proposed two hands-on labs. The adjusted version drops the first to a trainer-led demonstration and reinvests the time in the second. The trigger was a delivery-realism judgement: a mod-manager lab needs a supported game installed on every machine, and every game Vortex supports is a paid title. Procuring twenty-plus licences for a free trial session is not proportionate, and the setup — installs, accounts, two-factor prompts on unfamiliar machines — would have consumed most of the block it was meant to fill.
+The adjusted version differs from the original in two successive rounds of delivery-realism work. The first removed a lab that depended on paid game licences. The second replaced the remaining lab's toolchain — from a Windows-native level editor producing binary map files, to cross-platform text-based scripting. Both rounds were driven by the same question: what can actually be delivered to a room of students in three hours, on machines a venue will realistically prepare.
 
-## Structure
+## Round 1 — mod-manager lab dropped to demonstration
 
-- **`07` — Lab 1 (Install, Break, Repair) removed.** Replaced by **The Ecosystem — Live Tour** at 0:40–0:55, run from the trainer's own laptop and established Nexus Mods account. Load-order conflict is still taught, but shown on a real working modlist instead of reproduced on twenty machines.
-- **`07` — Warm-Up block added** at 0:55–1:05. Cutting Lab 1 left 55 minutes of continuous presentation before any keyboard contact, which is too long for a student audience and risks losing the room before the build lab. The warm-up costs nothing — the machines and starter project are already configured — and puts hands on keys inside the first hour. Students play the starter map, then open that same map in the editor, which makes the play-to-edit relationship physical rather than described.
-- **`07` — Build lab extended from 55 to 70 minutes.** The main gain from the restructure. Fifty-five minutes for a non-programmer audience meant rushing three rooms; seventy allows a level the participant is willing to show someone. Also adds slack for the slowest participants without stalling the finish.
-- **`07` — Break moved** from 1:10 to 1:05 to sit immediately after the warm-up, so the build lab runs as one uninterrupted 70-minute block.
-- **Two demonstration blocks retained deliberately.** The 0:40 tour is the ecosystem seen from outside (what mods look like to a player); the 2:30 demonstration is the craft seen from inside (what building a serious one costs). They are not redundant, and the warm-up between them is the transition.
+The original proposed two hands-on labs. The first, installing and troubleshooting mods through a mod manager, needed a supported game installed on every machine, and every title Vortex supports is a paid one. Procuring twenty-plus licences for a free trial session is not proportionate, and the setup — installs, accounts, two-factor prompts on unfamiliar machines — would have consumed most of the block it was meant to fill.
 
-## Objectives and outcomes
+- **`07` — Lab 1 removed**, replaced by **The Ecosystem — Live Tour** at 0:40–0:55, run from the trainer's own laptop and established Nexus Mods account. Load order is still taught, but shown on a real working modlist instead of reproduced on twenty machines.
+- **`07` — Warm-Up block added** at 0:55–1:05. Cutting Lab 1 left 55 minutes of continuous presentation before any keyboard contact, too long for a student audience. The warm-up puts hands on keys inside the first hour.
+- **`07` — Build lab extended from 55 to 70 minutes**, and the break moved from 1:10 to 1:05 so the lab runs as one uninterrupted block.
+- **Two demonstration blocks retained deliberately.** The 0:40 tour is the ecosystem seen from outside; the 2:30 demonstration is the craft seen from inside. The warm-up between them is the transition.
+- **`06` — "Deliberate Failure Exercises" row removed** (it described Lab 1's break-and-repair exercise); **"Live Ecosystem Walkthrough" row added**, naming the trainer's own account and modlist as the vehicle. Worth stating in the proposal: real download counts, endorsements and a real donation-point balance are materially more persuasive than a generic tour, particularly in the income segment where students are most likely to assume the numbers are invented.
+- **`08` — Steam, game licences and lab-machine internet access removed**, with an explicit sentence stating so, because "no licences required" is the kind of claim an IT department needs in writing before it will schedule the build. **Presenter requirements section added** — the tour depends on the trainer's laptop reaching both a projector and Nexus Mods, and "we have a projector" and "your laptop can connect to it" are different claims that diverge at 0:38 with a room watching.
 
-Removing the hands-on mod-manager work invalidated claims the original made. These were downgraded rather than left standing, because a proposal that claims a capability the session does not deliver is a delivery problem waiting to happen.
+## Round 2 — level editor replaced with scripting
 
-- **`04` objective 3** — "Install, configure and troubleshoot mods using a mod manager, including diagnosing and resolving a load-order conflict" was split and downgraded. It became two objectives grounded in what a demonstration can actually teach: reading a mod page for credibility (3), and explaining what a mod manager does and why load order matters (4). Both are assessable from observation; neither claims installation skill the participant will not practise.
-- **`04`** now lists six objectives rather than five, because of that split.
-- **`05` learning outcome** — "Use a mod manager to install multiple mods and resolve the conflicts that result" became "Explain why two working mods can break a game when combined, and how load order resolves it". Verb moved from doing to explaining, matching the delivery method.
-- **`05`** gained "Navigate Nexus Mods to assess a mod's credibility before installing it" — a genuine takeaway from the live tour, and arguably more useful to a beginner than mechanical installation steps.
-- **`09` Practical capability row** — "install, configure and repair mods independently" was unsupportable once the lab was cut. Rewritten to editor capability plus mod-page assessment.
+The remaining lab used Ultimate Doom Builder to build a small level, working from a hand-authored starter map file. Three problems with that, in ascending order of seriousness:
 
-## Methodology
+1. The starter map had to be authored by hand before the session, was not reproducible if lost, and existed nowhere yet.
+2. Ultimate Doom Builder is Windows-native, with no macOS build and experimental Linux support, and requires OpenGL 3.2 — a requirement that fails silently on virtual desktop infrastructure and thin clients.
+3. Beginners lose roughly 20 minutes to sector-drawing mechanics and to failure modes that look like broken software: untextured rooms rendering black, maps refusing to launch for want of a player start.
 
-- **`06` — "Deliberate Failure Exercises" row removed.** It described Lab 1's break-and-repair exercise, which no longer exists.
-- **`06` — "Live Ecosystem Walkthrough" row added**, naming the trainer's own account and modlist as the vehicle. Worth stating explicitly in the proposal: a live personal account with real download counts, real endorsements and a real donation-point balance is materially more persuasive than a generic tour, particularly for the income-ladder segment where students are most likely to assume the numbers are invented.
-- **`06` — "Hands-On Lab Exercises" row reworded** to describe a warm-up plus one extended lab, rather than implying two full labs.
-- **`07` subtitle** — "approximately half is hands-on" corrected to "approximately 45%", which is what 80 minutes of 180 actually is.
+The replacement uses ZScript, GZDoom's own scripting language. A mod becomes a folder containing one text file. Participants inherit from the engine's existing class definitions and override them.
 
-## Environment requirements
+- **`07` — Build lab rewritten** as incremental scripting: override enemy health and speed, make enemies explode on death, modify weapon damage and fire rate, with a stretch task defining a new enemy by inheritance. Each step loads and plays in seconds, so nobody waits on a build and nobody sits at zero progress.
+- **`07` — Warm-up repurposed.** Previously "open the starter map in the editor". Now: play the base game to establish baseline enemy behaviour, then build an empty mod package and load it. Nothing changes, deliberately — the pipeline is proven before content exists, so every later failure is a content failure rather than a setup failure. This is the single most valuable ordering choice in the lab.
+- **`07` — Representative code sample added** below the outline table. A six-line class definition, shown so the reader can see concretely what participants produce. Included because "students write mod code" reads as vague and slightly alarming to a non-technical reviewer; six readable lines defuse that.
+- **ZScript chosen over DECORATE.** DECORATE is the language most tutorials still show, and it is deprecated — GZDoom retains it for backwards compatibility but no longer uses it internally. Putting career-oriented students on a deprecated language would be a poor look, and ZScript supports the same methods with similar syntax, so there is no beginner-friendliness cost.
+- **`08` — Ultimate Doom Builder removed entirely.** With it goes the Windows requirement, the OpenGL 3.2 requirement, the VDI exclusion and the starter map file. Requirements are now any OS, GZDoom, Freedoom and a text editor. Disk space dropped from 2 GB to 1 GB.
+- **`08` — Wording softened but not dropped.** The original insisted pre-configuration "is not optional". That framing was load-bearing when machines needed a pre-seeded editor configuration; it is now merely sensible, so the line was rewritten rather than deleted. Overstating a requirement that a venue can visibly ignore without consequence costs credibility on the requirements that genuinely matter.
 
-Cutting Lab 1 simplified the technical rider substantially, and this is worth flagging to the academy as a benefit rather than burying it.
+## Objectives, outcomes and audience
 
-- **`08` — Steam, game licences and lab-machine internet access all removed.** Participant work now runs entirely on locally installed, freely licensed software. An explicit sentence states this, because "no licences required" is the kind of claim an IT department needs in writing before it will schedule the build.
-- **`08` — Presenter requirements section added.** The ecosystem tour depends on the trainer's own laptop reaching a projector and reaching Nexus Mods. "We have a projector" and "your laptop can connect to it" are different claims, and the gap between them surfaces at 0:38 with a room watching. Both are now stated as requirements to confirm in advance.
-- **`08` — Firewall requirement narrowed** from lab machines to the trainer's laptop only.
+Both rounds invalidated claims the original made. These were rewritten rather than left standing, on the principle that a proposal claiming a capability the session does not deliver is a delivery problem scheduled in advance.
+
+- **Round 1:** objective 3 — "Install, configure and troubleshoot mods using a mod manager, including diagnosing and resolving a load-order conflict" — was split and downgraded into two objectives a demonstration can genuinely support: reading a mod page for credibility, and explaining what a mod manager does and why load order matters. The matching learning outcome moved from doing to explaining.
+- **Round 2:** the level-building objective became two — assembling a loadable mod package (5), and writing ZScript that overrides engine class definitions (6). Objectives now number seven.
+- **`05`** gained "Build a correctly structured mod package and load it into a running game" and "Work an edit-test loop independently". The second is deliberately about method rather than content: iterating against observed behaviour is the habit that lets a participant continue alone after the session, and it is the honest description of what the lab drills.
+- **`02` designations** — "level designers and technical artists" became "technical designers and gameplay programmers", to match what the session now demonstrates.
+- **`03`** gained an explicit line that all code is supplied and explained line by line. Without it, "write ZScript" reads as a programming prerequisite and will deter exactly the students the session is for.
+- **`09`** gained a **Transferable concept** row. The lab's real payload is that games are data and class definitions which can be inherited and overridden — that generalises to most modern engines, where a level built in this specific editor would not have.
+
+## Full-day pathway
+
+- **`10` restructured.** Scripting was a full-day module in the original; the trial now covers its basics, so the full day escalates to advanced scripting, and level building moves *into* the full day as a differentiator rather than being spent in the trial. The gatekeeping logic is unchanged and arguably improved: the trial gives a working mod with no custom art, no levels and no publication, which is precisely the gap the paid day fills.
+- **`10` carries a platform note.** The level-building module reintroduces the Windows and OpenGL 3.2 requirement that Round 2 removed from the trial. Flagged explicitly in the proposal so it is not discovered during full-day scheduling, and so nobody mistakenly applies the constraint to the trial session.
 
 ## Content deliberately kept identical
 
-- **Section 01 overview** — only the third paragraph changed, to describe the ecosystem tour instead of the mod-manager lab. The historical hook and portfolio argument are the strongest part of the document and are untouched.
-- **Section 10 pathway table** — unchanged. The full-day workshop is unaffected by this restructure, and the gatekeeping logic still holds: the trial shows the ceiling, the full day supplies the ladder.
-- **Toolchain unchanged** — GZDoom, Ultimate Doom Builder and Freedoom throughout, for both the trial and the full day. Freedoom's Modified BSD licence is what makes the no-licences claim possible, so the licence note stays in the rider.
-- **The pre-configuration warning stays**, reworded to reference the build lab rather than both labs. It is the single requirement most likely to be half-done by a venue IT team, and the dry-run access request stays alongside it.
+- **The historical hook** — genres from mods, mod teams to studios, the income ladder — is untouched across both rounds. It is the strongest part of the document and does not depend on the toolchain.
+- **Freedoom throughout.** Its Modified BSD licence is what makes the no-licences claim possible, so the licence note stays in the rider.
+- **The dry-run access request stays.** It survives both rounds because it is the cheapest insurance available against a venue that agrees to the rider and half-implements it.
 
 ## Open before delivery
 
 - Nexus donation-point figures shown during the ecosystem tour should be pulled fresh in the delivery week rather than quoted from prepared slides — rates and payout thresholds change.
-- The starter project file does not yet exist. The build lab fails without it; it is the single highest-priority preparation item.
+- Two loading mechanics need confirming in the dry run: whether GZDoom loads an uncompressed folder directly, which would remove the zipping step from the lab entirely, and whether it accepts a `.zip` extension without renaming to `.pk3`. Neither blocks delivery — the zip-and-rename path is known to work — but either would simplify the warm-up.
+- Lab code for all five steps needs writing and testing end to end against the installed GZDoom version before the session. This replaces the starter map file as the main preparation item, and is substantially cheaper: it is text, it is reproducible, and it can be retyped from a slide if anything is lost.
