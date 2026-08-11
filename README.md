@@ -24,7 +24,7 @@ Malaysia HRDCorp SBL training proposals and course outlines.
 | automating-workflows-n8n | Automating Workflows with n8n | TBC | adjusted | 2d / 14h | 2026-06-28 |
 | automating-workflows-n8n-advanced | Automating Workflows with n8n: Advanced | TBC | draft | 2d / 14h | 2026-06-28 |
 | docker-crash-course | Docker Crash Course: First Container to Cloud Deploy | TBC | adjusted | 2d / 14h | 2026-07-31 |
-| xsolla-modding-trial | PC Game Modding: From Player to Creator | XSolla Curine Academy | draft | 3h | 2026-08-11 |
+| xsolla-modding-trial | PC Game Modding: From Player to Creator | XSolla Curine Academy | adjusted | 3h | 2026-08-11 |
 
 ## Layout
 
