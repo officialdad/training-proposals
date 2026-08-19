@@ -79,7 +79,7 @@ All software is free and openly licensed. No participant purchases and no game l
 
 **Software, pre-installed by the academy before session day**
 - UZDoom engine, version 4.14.3. UZDoom is the maintained continuation of GZDoom, forked by the original development team in October 2025; it reads GZDoom mods unchanged, and every GZDoom tutorial and wiki page still applies. Pinning the version matters more than the name: all lab machines must run the same one
-- Freedoom asset set, version 0.13.0, from <https://github.com/freedoom/freedoom/releases/tag/v0.13.0> (Modified BSD licence, free to use and redistribute, including in commercial training). Download `freedoom-0.13.0.zip` and install `freedoom2.wad`; verify it against the `freedoom-0.13.0-CHECKSUM` file published alongside it. The `freedm` download in the same release is deathmatch-only and is not usable for this session
+- Freedoom asset set, version 0.13.0, from the [official release page](https://github.com/freedoom/freedoom/releases/tag/v0.13.0) (Modified BSD licence, free to use and redistribute, including in commercial training). Download `freedoom-0.13.0.zip` and install `freedoom2.wad`; verify it against the `freedoom-0.13.0-CHECKSUM` file published alongside it. The `freedm` download in the same release is deathmatch-only and is not usable for this session
 - A text editor. Visual Studio Code preferred for syntax highlighting, though the system default is sufficient
 
 **Lab machines**
