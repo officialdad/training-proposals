@@ -30,6 +30,22 @@ The replacement uses ZScript, GZDoom's own scripting language. A mod becomes a f
 - **`08` — Ultimate Doom Builder removed entirely.** With it goes the Windows requirement, the OpenGL 3.2 requirement, the VDI exclusion and the starter map file. Requirements are now any OS, GZDoom, Freedoom and a text editor. Disk space dropped from 2 GB to 1 GB.
 - **`08` — Wording softened but not dropped.** The original insisted pre-configuration "is not optional". That framing was load-bearing when machines needed a pre-seeded editor configuration; it is now merely sensible, so the line was rewritten rather than deleted. Overstating a requirement that a venue can visibly ignore without consequence costs credibility on the requirements that genuinely matter.
 
+## Round 3 — engine repointed from GZDoom to UZDoom
+
+Checked against the current state of the ecosystem rather than assumed. GZDoom is no longer the engine to teach on:
+
+1. The GZDoom development team forked the project in October 2025 following a dispute over AI-generated code committed against the team's wishes, and the copyright questions that raised for the commercial games shipping on the engine. The team, the forums and the wiki went with the fork, **UZDoom**.
+2. GZDoom's last release is g4.14.2, May 2025. Its repository has taken one commit in all of 2026, and that from an outside contributor. It still runs; it is not being developed.
+3. UZDoom 4.14.3 (November 2025) is the current stable release, with Windows, macOS and Linux builds in a single release — the only one of the three ports that covers a mixed lab. 5.0 is in release candidate and deliberately not proposed.
+
+- **`01` and `07` — engine name changed to UZDoom, version pinned to 4.14.3.** The version pin is the part that matters operationally. A room where half the machines run one build and half another produces failures that look like student errors.
+- **`07` — one sentence of provenance kept in the proposal.** Naming UZDoom as the continuation of GZDoom is not trivia: participants will search "GZDoom modding", land on GZDoom material, and need to know it still applies. It does — UZDoom is reverse-compatible with pre-fork GZDoom, so the lab code, the wiki and every existing tutorial work unchanged.
+- **`07` — LZDoom named as the low-end fallback**, at 4.14.4 and no longer lagging on ZScript version as it historically did. Scoped tightly: Windows and Linux only, no macOS build, so it is a per-machine substitution and not a lab standard.
+- **`07` — Freedoom pinned to 0.13.0 with its release URL in the rider.** The release page carries a checksum file and also carries `freedm`, a deathmatch-only asset set that ships no single-player campaign and a reduced monster roster. An academy IT team told only "install Freedoom" can reasonably download the wrong one, and the failure surfaces at 1:20 with nothing for participants to override. Naming the file is cheaper than diagnosing that live.
+- **No change to the lab content.** ZScript is identical across GZDoom 4.14.2, UZDoom 4.14.3 and LZDoom 4.14.4. This round changes which binary the academy installs, nothing that happens in the room.
+- **Divergence is a future risk, not a present one.** UZDoom does not guarantee compatibility with *future* GZDoom releases. Worth re-checking before any repeat delivery; irrelevant to this one.
+- **`09` unchanged.** Ultimate Doom Builder is still current and still actively released, and still Windows-first with no official macOS build, so the full-day platform note stands as written.
+
 ## Objectives, outcomes and audience
 
 Both rounds invalidated claims the original made. These were rewritten rather than left standing, on the principle that a proposal claiming a capability the session does not deliver is a delivery problem scheduled in advance.
@@ -55,5 +71,5 @@ Both rounds invalidated claims the original made. These were rewritten rather th
 ## Open before delivery
 
 - Nexus donation-point figures shown during the ecosystem tour should be pulled fresh in the delivery week rather than quoted from prepared slides — rates and payout thresholds change.
-- Two loading mechanics need confirming in the dry run: whether GZDoom loads an uncompressed folder directly, which would remove the zipping step from the lab entirely, and whether it accepts a `.zip` extension without renaming to `.pk3`. Neither blocks delivery — the zip-and-rename path is known to work — but either would simplify the warm-up.
-- Lab code for all five steps needs writing and testing end to end against the installed GZDoom version before the session. This replaces the starter map file as the main preparation item, and is substantially cheaper: it is text, it is reproducible, and it can be retyped from a slide if anything is lost.
+- Two loading mechanics need confirming in the dry run: whether UZDoom loads an uncompressed folder directly, which would remove the zipping step from the lab entirely, and whether it accepts a `.zip` extension without renaming to `.pk3`. Neither blocks delivery — the zip-and-rename path is known to work — but either would simplify the warm-up.
+- Lab code for all five steps needs writing and testing end to end against the installed UZDoom version before the session. This replaces the starter map file as the main preparation item, and is substantially cheaper: it is text, it is reproducible, and it can be retyped from a slide if anything is lost.

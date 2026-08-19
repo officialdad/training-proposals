@@ -14,7 +14,7 @@ The MOBA came from a Warcraft III custom map. The battle royale came from an Arm
 
 That route is still open, and it is the cheapest portfolio a student can build. A published mod has a download count and real user feedback attached to it, which answers a question a CV cannot: can this person finish something other people want to use?
 
-This 3-hour session is for students weighing a career in games. Participants see how mods became genres and how mod teams became studios, tour a live modding ecosystem through the trainer's own Nexus Mods account, then write working mod code that changes how a game behaves. The code is ZScript, the scripting language of the GZDoom engine: a few lines that inherit from the game's own class definitions and override them, so enemies get faster, tougher or explosive and weapons behave differently. No programming background is assumed, and every change is testable within seconds.
+This 3-hour session is for students weighing a career in games. Participants see how mods became genres and how mod teams became studios, tour a live modding ecosystem through the trainer's own Nexus Mods account, then write working mod code that changes how a game behaves. The code is ZScript, the scripting language of the UZDoom engine: a few lines that inherit from the game's own class definitions and override them, so enemies get faster, tougher or explosive and weapons behave differently. No programming background is assumed, and every change is testable within seconds.
 
 Everyone leaves with a working mod they wrote and played, plus an honest view of what a serious mod involves. The session is the entry point to a full-day workshop where participants publish a complete mod under their own name.
 
@@ -78,14 +78,15 @@ At the end of this session, participants will be able to:
 All software is free and openly licensed. No participant purchases and no game licences are required.
 
 **Software, pre-installed by the academy before session day**
-- GZDoom engine
-- Freedoom asset set (Modified BSD licence, free to use and redistribute, including in commercial training)
+- UZDoom engine, version 4.14.3. UZDoom is the maintained continuation of GZDoom, forked by the original development team in October 2025; it reads GZDoom mods unchanged, and every GZDoom tutorial and wiki page still applies. Pinning the version matters more than the name: all lab machines must run the same one
+- Freedoom asset set, version 0.13.0, from <https://github.com/freedoom/freedoom/releases/tag/v0.13.0> (Modified BSD licence, free to use and redistribute, including in commercial training). Download `freedoom-0.13.0.zip` and install `freedoom2.wad`; verify it against the `freedoom-0.13.0-CHECKSUM` file published alongside it. The `freedm` download in the same release is deathmatch-only and is not usable for this session
 - A text editor. Visual Studio Code preferred for syntax highlighting, though the system default is sufficient
 
 **Lab machines**
 - Windows, macOS or Linux. The toolchain is cross-platform and runs on low-end hardware
 - Working audio output and roughly 1 GB free disk space
 - No Steam, no game licences and no internet access needed for participant work
+- Machines older than OpenGL 3.3 still run, on the engine's built-in software renderer. Where that proves too slow, LZDoom 4.14.4 is a drop-in substitute on Windows and Linux and accepts the same lab code, but it has no macOS build
 
 **Trainer requirements**
 - Display connection for the trainer's laptop, confirmed working in advance
