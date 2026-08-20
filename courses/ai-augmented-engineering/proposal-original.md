@@ -204,3 +204,13 @@ Participants will receive a Certificate of Completion upon successful attendance
 | **Tooling integration** | Internal systems are reachable by agents through MCP, closing the gap between the codebase and the tools around it |
 | **Safe, accountable adoption** | Permission boundaries, deterministic hooks, spend caps and diff review keep a named human answerable for every change |
 | **Vendor flexibility** | Techniques are proven on a paid harness, a free-tier harness and open standards, so adoption is not blocked by licence budget or lock-in |
+
+## 12 Course Fee
+
+**RM19,444.44 + 8% SST (RM1,555.56) = RM21,000.00 per group.**
+
+- In-house rate for one organisation, covering both training days.
+- Priced at the HRD Corp Allowable Cost Matrix ceiling for General Courses (In-House), which is RM10,500 per day per group inclusive of SST.
+- A full day requires a minimum of seven training hours. This programme runs seven hours on each of the two days.
+- Recommended group size is 12 to 20 participants. The minimum is two participants, and HRD Corp prorates the fee for groups smaller than five.
+- The fee covers trainer delivery, lab repositories, course materials and the harness templates participants take away. Venue, meals and participant travel are claimed separately by the employer under their own ACM line items.
