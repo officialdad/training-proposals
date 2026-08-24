@@ -16,9 +16,9 @@ The practice has shifted twice since 2024. Prompt engineering, meaning the craft
 
 A second shift matters just as much to a Malaysian engineering organisation. Open-weight models caught up far enough that a single consumer GPU now runs a coding agent that completes real multi-file work. `llama.cpp` serves those models from one quantised GGUF file, and its server speaks both the OpenAI and the Anthropic Messages API, so the same harness built on Day 1 points at a local endpoint by changing one environment variable. That changes what is possible for code that cannot leave the building, for teams without a per-seat licence budget, and for loops whose token cost would otherwise be uncapped. It does not make the frontier models redundant, and the third day is spent measuring exactly where the line falls rather than asserting it.
 
-This three-day, lab-heavy programme teaches engineers to build and operate that harness end to end. Participants work with two tools side by side, Claude Code on a paid plan and OpenCode on its free tier, so every technique is reproducible whether or not the organisation buys seats. Day 1 covers the agentic loop on a real repository, context engineering with `AGENTS.md`, spec-driven change, git-native review discipline, and authoring portable `SKILL.md` skills. Day 2 extends the harness with subagents, deterministic hooks and MCP servers, including building one, then closes on loop engineering: headless runs, scheduled and event-triggered loops, stop conditions, evals and budget guards. Day 3 stands up `llama.cpp`, selects a model that is genuinely good enough for coding work on the hardware in the room, points the Day 1 harness at it, and runs a measured head-to-head against a frontier cloud model on the same task.
+This three-day, lab-heavy programme teaches engineers to build and operate that harness end to end. Participants work with two tools side by side, Claude Code on a paid plan and OpenCode on its free tier, so every technique is reproducible whether or not the organisation buys seats. Day 1 covers the agentic loop on a real repository, context engineering with `AGENTS.md`, spec-driven change, git-native review discipline, and authoring portable `SKILL.md` skills. Day 2 extends the harness with subagents, deterministic hooks and MCP servers, including building one, then closes on loop engineering: headless runs, scheduled and event-triggered loops, stop conditions, evals and budget guards. Day 3 sizes the hardware first, stands up `llama.cpp`, works through the open-weight coding field to select a model that is genuinely good enough on the machine in front of the participant, points the Day 1 harness at it, and runs a measured head-to-head against a frontier cloud model on the same task.
 
-Participants use their own terminal, git and code editor throughout. They leave with a configured team harness, one running loop, a working local inference server and a written model recommendation for their own hardware, all ready to commit to their own repository on Monday morning.
+Participants use their own terminal, git and code editor throughout. They leave with a configured team harness, one running loop, a working local inference server and a written hardware and model recommendation for their own workload, all ready to commit to their own repository on Monday morning.
 
 ## 02 Target Audience
 
@@ -45,8 +45,8 @@ Participants use their own terminal, git and code editor throughout. They leave 
 - Day-to-day git usage, including branch, commit, diff, push and resolving a merge conflict
 - A code editor in daily use (VS Code, JetBrains, Neovim or equivalent)
 - Ability to run a project's test suite locally
-- For the Day 3 local-inference labs, a machine with a discrete GPU of at least 16 GB VRAM, or Apple Silicon with at least 24 GB unified memory. Participants below that threshold complete the labs against a trainer-provided shared endpoint and still run a small model locally on their own machine.
-- No prior experience with AI coding agents, GPUs or model serving required
+- For the Day 3 local-inference labs, a machine with a discrete GPU of at least 16 GB VRAM, or Apple Silicon with at least 24 GB unified memory, gives the best experience. Hardware sizing is taught in Hour 16, so participants below that threshold still complete every lab: they run a small model on their own machine and use a trainer-provided shared endpoint for the larger ones.
+- No prior experience with AI coding agents, GPU hardware or model serving required
 
 ## 04 Course Objectives
 
@@ -59,10 +59,11 @@ At the end of this programme, participants will be able to:
 5. Configure hooks that enforce guardrails deterministically, covering command blocking, formatting, secret scanning and test gates.
 6. Connect existing MCP servers to a harness and build a minimal custom MCP server that exposes an internal tool.
 7. Design and operate scheduled, event-triggered and goal-driven agent loops that run headlessly or in CI under explicit stop conditions, evals and budget guards.
-8. Build and run a `llama.cpp` inference server, load a quantised GGUF model, and size context length and GPU offload to the available hardware.
-9. Select an open-weight coding model that meets a stated workload on a stated VRAM budget, justified by agentic benchmark evidence and by measurements taken on the participant's own machine.
-10. Drive the same harness against a local model and against a frontier cloud model, then produce a comparison of completion rate, diff quality, tool-call accuracy, speed and cost.
-11. Decide which work runs local and which escalates to a frontier model, on the basis of data residency, cost, latency and task difficulty.
+8. Size hardware for local inference, choosing a VRAM tier, an accelerator and a buy-or-rent option costed against equivalent frontier token spend.
+9. Build and run a `llama.cpp` inference server, load a quantised GGUF model, and size context length and GPU offload to the available hardware.
+10. Select an open-weight coding model that meets a stated workload on a stated VRAM budget, justified by agentic benchmark evidence and by measurements taken on the participant's own machine.
+11. Drive the same harness against a local model and against a frontier cloud model, then produce a comparison of completion rate, diff quality, tool-call accuracy, speed and cost.
+12. Decide which work runs local and which escalates to a frontier model, on the basis of data residency, cost, latency and task difficulty.
 
 ## 05 Learning Outcomes
 
@@ -76,11 +77,13 @@ Upon completion of the programme, participants will be able to:
 - Register an existing MCP server, and build, test and register a custom one.
 - Run an agent headlessly from a script, and stand up one scheduled or event-triggered loop with a stop condition and a spend limit.
 - Write a small eval that verifies the harness still produces correct output after a change to memory, a skill or a model.
+- Read a machine's specification and state which model tiers it can serve, from VRAM, memory bandwidth and accelerator type.
+- Cost a workstation, a shared team GPU host and a rented cloud GPU against the frontier token spend each would displace.
 - Build `llama.cpp` with the correct GPU backend for their hardware and serve a GGUF model with `llama-server` under chosen context and offload settings.
 - Read a quantisation label, predict the memory a model will occupy, and explain the quality cost of dropping from Q5_K_M to Q4_K_M.
 - Benchmark a candidate model on their own machine with `llama-bench` and report prompt-processing and generation throughput.
 - Point Claude Code and OpenCode at a local endpoint and complete an agentic task with no request leaving the machine.
-- Present a scored local-against-frontier comparison on one identical task, and defend a hybrid routing decision from it.
+- Present a scored local-against-frontier comparison on one identical task, and defend a hybrid routing decision and a hardware purchase from it.
 - Judge which tasks in their own backlog are worth delegating, which are worth looping, which are safe to run local, and which should stay manual.
 
 ## 06 Training Methodology
@@ -186,48 +189,52 @@ Upon completion of the programme, participants will be able to:
 - Stand up one event-triggered or goal-driven loop with a stop condition and a spend cap, then watch it complete a real task unattended
 - Present the harness and receive trainer and peer review
 
-### Day 3 — Local Models: Serving, Selecting and Measuring Against the Frontier
+### Day 3 — Local Models: Hardware, Serving, Selection and the Frontier Comparison
 
-**Hour 15 — Why Run a Model Locally**
+**Hour 15 — Why Run a Model Locally, and What It Costs**
 - The four drivers: data residency, cost per token, latency, and working offline or air-gapped
 - Where local inference wins today, and where a frontier model still finishes work that a local one abandons
 - Open weights against open source: Apache 2.0, MIT and custom licences, and what each permits commercially
+- What local inference does and does not settle for compliance, since keeping code on-premises is not by itself a control
 - Auditing the Day 1 and Day 2 harness to decide which tasks are candidates to move local
 
-**Hour 16 — `llama.cpp` and GGUF: Standing Up an Inference Server**
+**Hour 16 — Hardware: Sizing the Machine That Runs the Model**
+- The one number that decides everything: VRAM, and the memory bandwidth that decides how fast it reads
+- NVIDIA consumer against workstation cards, the 8, 16, 24, 32 and 48 GB tiers, and what each tier can actually hold
+- Apple Silicon unified memory, AMD ROCm and Intel, plus CPU-only and partial-offload inference and the speed penalty each carries
+- Multi-GPU, quantised key-value cache and context length, which is the setting that silently exhausts VRAM
+- Buy against rent: a workstation, one shared team GPU host, or a rented cloud GPU, costed against per-token frontier spend
+
+**Hour 17 — `llama.cpp` and GGUF: Standing Up an Inference Server**
 - Installing `llama.cpp` from a prebuilt release, or building it against the right backend for CUDA, Metal, Vulkan or ROCm
-- The GGUF single-file format, quantisation levels, and why Q4_K_M is the working default
+- The GGUF single-file format, quantisation levels from Q8_0 down to Q3_K_M, and why Q4_K_M is the working default
 - Running `llama-server` with `-m`, `--ctx-size`, `-ngl`, `--port` and `--jinja`, and tracking where the VRAM goes
 - Pulling a model directly from Hugging Face and confirming the server answers a first request
+- Serving one endpoint for a team: model swapping, keep-alive, concurrent requests and queueing on a single card
 
-**Hour 17 — Choosing a Model That Is Good Enough for Code**
-- The tiers by VRAM budget, with a named reference model at 8 GB, 16 GB, 24 GB and 48 GB or above
+**Hour 18 — The Model Field: Which Open Weights Are Good Enough for Code**
+- The 2026 open-weight coding field, covering the Qwen3-Coder, gpt-oss, GLM, Devstral, DeepSeek and Gemma families and what each is built for
+- The tiers by VRAM budget, with a named reference model and an expected token rate at 8, 16, 24 and 48 GB or above
 - Dense against mixture-of-experts, active parameters, and why an MoE model outperforms its memory footprint
 - Reading the benchmarks honestly: code generation, tool-selection accuracy and agentic completion, and why the last one predicts real use
 - Measuring the machine in front of you with `llama-bench`, covering prompt processing, generation speed and the context length that actually fits
 
-**Hour 18 — Pointing the Harness at a Local Model**
+**Hour 19 — Pointing the Harness at a Local Model**
 - The Anthropic Messages API and the OpenAI-compatible routes that `llama-server` exposes
 - Running Claude Code against the local endpoint by setting `ANTHROPIC_BASE_URL`
 - Configuring OpenCode against the same server as a local provider
 - Tool calling on a local model, and its failure modes: malformed calls, repeated calls, and a context window that truncates mid-task
 
-**Hour 19 — Local Against Frontier: A Measured Comparison**
+**Hour 20 — Local Against Frontier: A Measured Comparison**
 - One repository and one identical spec, run three times: local model, mid-tier cloud model, frontier cloud model
 - Scoring each run on completion, diff quality, tool-call accuracy, wall-clock time and money spent
 - Reading the results: which task classes the local model held, and which it broke down on
 - The hybrid pattern, running bulk and confidential work local while escalating the hard step to a frontier model
 
-**Hour 20 — Operating Local Models for a Team**
-- Serving one shared GPU endpoint for a team instead of a model on every laptop
-- Model swapping, keep-alive, concurrent requests and queueing on a single card
-- What local inference does and does not settle for compliance, since keeping code on-premises is not by itself a control
-- The real cost model: hardware, electricity and engineer time set against per-token cloud spend
-
 **Hour 21 — Hands-On Lab: A Private Harness with No Cloud Calls**
 - Run the full Day 2 harness, meaning `AGENTS.md`, a skill, a hook, a subagent and the custom MCP server, entirely against a local model
 - Run one loop unattended on local inference, then confirm the token spend for the run is zero
-- Write a model recommendation for the participant's own hardware and workload, supported by their `llama-bench` numbers and their Hour 19 scores
+- Write a hardware and model recommendation for the participant's own workload, supported by their `llama-bench` numbers and their Hour 20 scores
 - Present the recommendation and the comparison table for trainer and peer review
 
 ## 08 Assessment Method
@@ -253,16 +260,31 @@ Participants will receive a Certificate of Completion upon successful attendance
 - `llama.cpp`, installed from a prebuilt release or built with the backend matching the participant's GPU
 - A Hugging Face account, for downloading GGUF model files
 - Roughly 60 GB of free disk space for model files across the Day 3 labs
-- Hardware for Day 3: a discrete GPU with 16 GB VRAM or more, or Apple Silicon with 24 GB unified memory or more. A trainer-provided shared endpoint covers participants whose machines fall below this.
+- Hardware for Day 3: see the reference hardware tiers below. A trainer-provided shared endpoint covers participants whose machines sit below the Practical tier.
+
+**Reference hardware tiers for Day 3.** Hardware is a taught topic, not a prerequisite to guess at. Participants size their own machine in Hour 16 against this table. VRAM sets which models load at all. Memory bandwidth sets how fast they generate.
+
+| Tier | Representative hardware | Usable VRAM or unified memory | What it serves | Expected generation speed |
+|---|---|---|---|---|
+| Entry | RTX 4060 / 3070, 16 GB Apple Silicon | 8 GB | A 7B coder at Q4_K_M, at a reduced context cap | Around 40–60 tokens per second |
+| Practical | RTX 4080 / 5070 Ti, 24 GB Apple Silicon | 16 GB | A 20B mixture-of-experts model fully on the accelerator | Around 100–140 tokens per second |
+| Recommended | RTX 3090 / 4090 / 5090, 32 GB Apple Silicon | 24–32 GB | A 30B mixture-of-experts coder with a long context, which is the entry point for real agentic work | Around 60–100 tokens per second |
+| Team or workstation | RTX 6000 Ada, dual 24 GB cards, 64–128 GB Apple Silicon | 48 GB and above | An 80B class agentic coder, or several models served concurrently to a team | Around 20–50 tokens per second |
+| No accelerator | Any modern laptop CPU | System RAM only | A 7B model at Q4_K_M, for demonstration and evaluation only | Under 10 tokens per second, too slow for agentic use |
+
+Rented cloud GPUs are covered as an option in the same hour, priced per hour against the frontier token spend they displace. Participants below the Practical tier complete the labs against a trainer-provided shared endpoint and still serve a small model on their own machine.
 
 **Reference model set for Day 3.** The exact builds are confirmed against current releases before delivery, since the open-weight field moves monthly. Selection favours permissive licences, GGUF availability and demonstrated tool-calling ability, because a coding agent that cannot call tools reliably is unusable regardless of its code-generation score.
 
-| VRAM budget | Reference model | Quantisation | Realistic use |
-|---|---|---|---|
-| 8 GB | Qwen2.5-Coder-7B (Apache 2.0) | Q4_K_M, around 4.7 GB | Single-file edits, explanation, completion. Agentic runs only at a reduced context cap |
-| 16 GB | gpt-oss-20b (Apache 2.0), mixture-of-experts with about 3.6 B active | MXFP4, around 14 GB | Fits fully on the GPU, so it is fast enough for interactive agent work with tool calling |
-| 24 GB | Qwen3-Coder-30B-A3B-Instruct (Apache 2.0), mixture-of-experts with about 3.3 B active | Q4_K_M, around 18 GB | The practical entry point for multi-file agentic work, with a very long context window |
-| 48 GB and above | Qwen3-Coder-Next-80B, or a GLM or Devstral class agentic coder | Q4_K_M | Closest open-weight approach to frontier behaviour on long-horizon repository tasks |
+| VRAM budget | Reference model | Architecture | Quantisation and size | Context | Agentic verdict |
+|---|---|---|---|---|---|
+| 8 GB | Qwen2.5-Coder-7B (Apache 2.0) | Dense, 7 B | Q4_K_M, around 4.7 GB | 32K native | Single-file edits, explanation and completion. Tool calling is unreliable under load, so agentic runs need a reduced context cap |
+| 16 GB | gpt-oss-20b (Apache 2.0) | Mixture-of-experts, 20.9 B total and about 3.6 B active | MXFP4, around 14 GB | 131K | Fits fully on the accelerator, so it is fast enough for interactive agent work with dependable tool calling |
+| 24 GB | Qwen3-Coder-30B-A3B-Instruct (Apache 2.0) | Mixture-of-experts, 30.5 B total and about 3.3 B active | Q4_K_M, around 18 GB | 256K, extensible with YaRN | The practical entry point for multi-file agentic work. Reported at roughly 80% code generation, 77% tool selection and 80% agent accuracy on an independent local harness |
+| 48 GB and above | Qwen3-Coder-Next-80B, or a GLM or Devstral class agentic coder | Mixture-of-experts or dense, depending on the model chosen | Q4_K_M, around 45 GB for the 80B | 256K | The closest open-weight approach to frontier behaviour on long-horizon repository tasks |
+| Cloud frontier, for comparison | Claude Opus and Sonnet, GPT-5 class Codex models | Hosted, weights not published | Not applicable | 200K and above | The Hour 20 baseline. Best open-weight models land near the frontier on published SWE-bench Verified scores, and the gap that remains shows up on long-horizon tool use rather than on single-file code generation |
+
+Benchmark figures above are drawn from public aggregate reporting and are re-checked against model cards before delivery. The course teaches participants to distrust these numbers and measure agentic completion on their own repository, which is the Hour 20 exercise.
 
 ## 11 Expected Outcomes & Impact
 
@@ -275,6 +297,7 @@ Participants will receive a Certificate of Completion upon successful attendance
 | **Tooling integration** | Internal systems are reachable by agents through MCP, closing the gap between the codebase and the tools around it |
 | **Data residency** | Code that is contractually or legally barred from leaving the organisation is still worked on by an agent, because the model runs on owned hardware |
 | **Predictable cost** | High-volume and looped work moves onto local inference at a fixed hardware cost, and frontier spend is reserved for the tasks that need it |
+| **Informed hardware spend** | GPU purchase or rental is sized against a measured workload and costed against the frontier token spend it displaces, rather than bought on a vendor recommendation |
 | **Evidence-based model choice** | Model selection rests on measured agentic completion on the organisation's own hardware and repositories, not on a vendor benchmark |
 | **Safe, accountable adoption** | Permission boundaries, deterministic hooks, spend caps and diff review keep a named human answerable for every change |
 | **Vendor flexibility** | Techniques are proven on a paid harness, a free-tier harness, open standards and open weights, so adoption is blocked by neither licence budget nor lock-in |
