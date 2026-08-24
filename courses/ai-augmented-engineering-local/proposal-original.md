@@ -16,7 +16,7 @@ The practice has shifted twice since 2024. Prompt engineering, meaning the craft
 
 A second shift matters just as much to a Malaysian engineering organisation. Open-weight models caught up far enough that a single consumer GPU now runs a coding agent that completes real multi-file work. `llama.cpp` serves those models from one quantised GGUF file, and its server speaks both the OpenAI and the Anthropic Messages API, so the same harness built on Day 1 points at a local endpoint by changing one environment variable. That changes what is possible for code that cannot leave the building, for teams without a per-seat licence budget, and for loops whose token cost would otherwise be uncapped. It does not make the frontier models redundant, and the third day is spent measuring exactly where the line falls rather than asserting it.
 
-This three-day, lab-heavy programme teaches engineers to build and operate that harness end to end. Participants work with two tools side by side, Claude Code on a paid plan and OpenCode on its free tier, so every technique is reproducible whether or not the organisation buys seats. Day 1 covers the agentic loop on a real repository, context engineering with `AGENTS.md`, spec-driven change, git-native review discipline, and authoring portable `SKILL.md` skills. Day 2 extends the harness with subagents, deterministic hooks and MCP servers, including building one, then closes on loop engineering: headless runs, scheduled and event-triggered loops, stop conditions, evals and budget guards. Day 3 sizes the hardware first, stands up `llama.cpp`, works through the open-weight coding field to select a model that is genuinely good enough on the machine in front of the participant, points the Day 1 harness at it, and runs a measured head-to-head against a frontier cloud model on the same task.
+This three-day, lab-heavy programme teaches engineers to build and operate that harness end to end. Participants work with two tools side by side, Claude Code on a paid plan and OpenCode on its free tier, so every technique is reproducible whether or not the organisation buys seats. Day 1 is setup. Both harnesses are installed, the hardware in the room is sized, `llama.cpp` serves a quantised model, the open-weight coding field is worked through to pick one that is genuinely good enough, the harness is pointed at it, and the day closes on a measured head-to-head between local and frontier on the same task. Day 2 is the harness itself: the agentic loop on a real repository, context engineering with `AGENTS.md`, spec-driven change, git-native review discipline, portable `SKILL.md` skills, scoped subagents and deterministic hooks. Day 3 extends and automates: MCP servers including building one, loop engineering, loops running unattended on local inference at fixed cost, evals, and the cost, data-handling and adoption decisions a team has to make.
 
 Participants use their own terminal, git and code editor throughout. They leave with a configured team harness, one running loop, a working local inference server and a written hardware and model recommendation for their own workload, all ready to commit to their own repository on Monday morning.
 
@@ -45,7 +45,7 @@ Participants use their own terminal, git and code editor throughout. They leave 
 - Day-to-day git usage, including branch, commit, diff, push and resolving a merge conflict
 - A code editor in daily use (VS Code, JetBrains, Neovim or equivalent)
 - Ability to run a project's test suite locally
-- For the Day 3 local-inference labs, a machine with a discrete GPU of at least 16 GB VRAM, or Apple Silicon with at least 24 GB unified memory, gives the best experience. Hardware sizing is taught in Hour 16, so participants below that threshold still complete every lab: they run a small model on their own machine and use a trainer-provided shared endpoint for the larger ones.
+- For the local-inference labs, which start on Day 1, a machine with a discrete GPU of at least 16 GB VRAM, or Apple Silicon with at least 24 GB unified memory, gives the best experience. Hardware sizing is taught in Hour 3, so participants below that threshold still complete every lab: they run a small model on their own machine and use a trainer-provided shared endpoint for the larger ones.
 - No prior experience with AI coding agents, GPU hardware or model serving required
 
 ## 04 Course Objectives
@@ -53,16 +53,16 @@ Participants use their own terminal, git and code editor throughout. They leave 
 At the end of this programme, participants will be able to:
 
 1. Configure two agentic coding harnesses, Claude Code on a paid plan and OpenCode on its free tier, and run both against the same repository.
-2. Drive a code change end to end with an agent: plan, edit, run tests, read failures, fix, review the diff and commit.
-3. Apply context engineering, including `AGENTS.md` project memory, spec-first task framing and working-set management, to prevent intent drift and context decay on a large codebase.
-4. Author portable `SKILL.md` skills and scoped subagents that encode team conventions and survive a change of harness.
-5. Configure hooks that enforce guardrails deterministically, covering command blocking, formatting, secret scanning and test gates.
-6. Connect existing MCP servers to a harness and build a minimal custom MCP server that exposes an internal tool.
-7. Design and operate scheduled, event-triggered and goal-driven agent loops that run headlessly or in CI under explicit stop conditions, evals and budget guards.
-8. Size hardware for local inference, choosing a VRAM tier, an accelerator and a buy-or-rent option costed against equivalent frontier token spend.
-9. Build and run a `llama.cpp` inference server, load a quantised GGUF model, and size context length and GPU offload to the available hardware.
-10. Select an open-weight coding model that meets a stated workload on a stated VRAM budget, justified by agentic benchmark evidence and by measurements taken on the participant's own machine.
-11. Drive the same harness against a local model and against a frontier cloud model, then produce a comparison of completion rate, diff quality, tool-call accuracy, speed and cost.
+2. Size hardware for local inference, choosing a VRAM tier, an accelerator and a buy-or-rent option costed against equivalent frontier token spend.
+3. Build and run a `llama.cpp` inference server, load a quantised GGUF model, and size context length and GPU offload to the available hardware.
+4. Select an open-weight coding model that meets a stated workload on a stated VRAM budget, justified by agentic benchmark evidence and by measurements taken on the participant's own machine.
+5. Drive the same harness against a local model and against a frontier cloud model, then produce a comparison of completion rate, diff quality, tool-call accuracy, speed and cost.
+6. Drive a code change end to end with an agent: plan, edit, run tests, read failures, fix, review the diff and commit.
+7. Apply context engineering, including `AGENTS.md` project memory, spec-first task framing and working-set management, to prevent intent drift and context decay on a large codebase.
+8. Author portable `SKILL.md` skills and scoped subagents that encode team conventions and survive a change of harness or of model.
+9. Configure hooks that enforce guardrails deterministically, covering command blocking, formatting, secret scanning and test gates.
+10. Connect existing MCP servers to a harness and build a minimal custom MCP server that exposes an internal tool.
+11. Design and operate scheduled, event-triggered and goal-driven agent loops that run headlessly or in CI under explicit stop conditions, evals and budget guards.
 12. Decide which work runs local and which escalates to a frontier model, on the basis of data residency, cost, latency and task difficulty.
 
 ## 05 Learning Outcomes
@@ -101,13 +101,14 @@ Upon completion of the programme, participants will be able to:
 
 *3-day programme · 21 hours of intensive, hands-on learning*
 
-### Day 1 — The Harness: Context, Specs and Skills
+### Day 1 — Setup: Harnesses, Hardware and the Local Stack
 
 **Hour 1 — From Prompt Engineering to Loop Engineering**
 - Autocomplete, agent and loop: what changed between the three, and why
 - The plan, act and observe cycle, and what a harness can touch: files, shell, tests, git
-- The 2026 landscape of paid harnesses, free tiers, open-source tools, and the standards now held under the Agentic AI Foundation
-- Live cold-open: an agent taking a task end to end on a real repository
+- The 2026 landscape of paid harnesses, free tiers, open weights, and the standards now held under the Agentic AI Foundation
+- The four reasons to run a model on your own hardware: data residency, cost per token, latency, and working offline or air-gapped
+- Live cold-open: the same task run by a frontier model and by a local one, side by side
 
 **Hour 2 — Standing Up Two Harnesses**
 - Installing and authenticating Claude Code on a paid plan
@@ -115,127 +116,127 @@ Upon completion of the programme, participants will be able to:
 - Configuration files, model selection, cost tiers, and where each tool stores state
 - Pointing both harnesses at the same repository and comparing how they behave
 
-**Hour 3 — The Agentic Loop on a Real Repository**
-- Asking the agent to explain unfamiliar code and trace a request flow
-- Taking a small change through edit, test run, failure and fix
-- Reading agent output critically, and recognising where agents go confidently wrong
-- Treating verification as part of the task rather than something done afterwards
-
-**Hour 4 — Context Engineering: Memory, `AGENTS.md` and Permissions**
-- How context engineering differs from prompt engineering: curating what the agent knows
-- `AGENTS.md` as an open standard: what belongs in it, what does not, and why it survives a change of tool
-- Context decay on a long session, covering working-set management, compaction, and when to start fresh
-- Plan mode, permission modes, tool allowlists, and keeping secrets out of context
-
-**Hour 5 — Spec-Driven Development and the Git-Native Workflow**
-- Specs as the source of truth: writing a task specification an agent can be held to
-- Intent drift and unverifiable output, the two failure modes specs exist to close
-- Branch-per-task and git worktrees for isolating agent runs, plus agent-authored commits and pull requests
-- Diff review discipline, and how to recover cleanly when a run goes wrong
-
-**Hour 6 — Skills: Packaging Repeatable Expertise**
-- `SKILL.md` anatomy: frontmatter, description, procedure, hard rules
-- Progressive disclosure, and why a skill loads only when it is relevant
-- Writing descriptions that trigger reliably and keeping skills portable across harnesses
-- Converting an existing team runbook into a working skill
-
-**Hour 7 — Hands-On Lab: Ship a Feature End-to-End**
-- Seed a supplied repository with `AGENTS.md` and one authored skill
-- Write a short spec, then take the feature from plan mode through implementation, tests and pull request
-- Run the same task in both harnesses and compare the output, its quality and its cost
-- Trainer review of each participant's spec, diff and commit history
-
-### Day 2 — Extending the Harness: Subagents, Hooks, MCP and Loops
-
-**Hour 8 — Subagents and Multi-Agent Orchestration**
-- Defining a subagent: system prompt, scoped tools, model tier
-- Context isolation, and how delegation preserves the main session's window
-- Fanning out independent tasks in parallel, compared with one long session
-- Delegating review to an adversarial subagent that argues against the change
-
-**Hour 9 — Hooks: Deterministic Guardrails**
-- Hook events: session start, pre and post tool use, stop
-- Blocking a dangerous command before the agent can run it
-- Auto-formatting edited files and scanning for secrets on write
-- Why a guardrail has to be enforced by a hook rather than requested in a prompt
-
-**Hour 10 — MCP Servers: Wiring the Agent to Your Systems**
-- The MCP model of tools, resources and prompts, and where it sits in the 2026 standards stack alongside `AGENTS.md` and agent-to-agent protocols
-- Transport choices: local stdio servers against remote servers
-- Connecting existing servers for GitHub, a database, documentation and a browser
-- Scoping, authentication, and the real risks of over-broad tool access
-
-**Hour 11 — Build a Minimal MCP Server**
-- Exposing one internal tool over MCP with a typed input schema
-- Testing the server standalone before wiring it to any agent
-- Registering it in both Claude Code and OpenCode
-- Schema design, and the failure modes that leave an agent confused
-
-**Hour 12 — Loop Engineering: Agents That Run Themselves**
-- Headless, non-interactive invocation and structured output for scripting
-- The four loop shapes: scheduled by cron, triggered by an event, run continuously on a heartbeat, or run until a goal is met
-- Practical loops that triage new issues, review incoming pull requests, chase a failing CI job, or sweep a migration across a repository
-- Stop conditions, retry limits and spend caps, which are what keep a loop from running away
-
-**Hour 13 — Evals, Cost and Team Adoption**
-- Writing a small eval that proves the harness still works after a change to memory, a skill or a model
-- Token spend, model tiering, and setting a budget per task and per loop
-- Data handling: which code and credentials must never reach a hosted model
-- Review accountability, organisational policy, and rolling a shared harness across a team repository
-
-**Hour 14 — Hands-On Lab: Build a Team Harness and Run a Loop**
-- Assemble one repository carrying `AGENTS.md`, a skill, a hook, a custom MCP server and a subagent
-- Verify the harness by having the agent complete a task it could not have completed at Hour 1
-- Stand up one event-triggered or goal-driven loop with a stop condition and a spend cap, then watch it complete a real task unattended
-- Present the harness and receive trainer and peer review
-
-### Day 3 — Local Models: Hardware, Serving, Selection and the Frontier Comparison
-
-**Hour 15 — Why Run a Model Locally, and What It Costs**
-- The four drivers: data residency, cost per token, latency, and working offline or air-gapped
-- Where local inference wins today, and where a frontier model still finishes work that a local one abandons
-- Open weights against open source: Apache 2.0, MIT and custom licences, and what each permits commercially
-- What local inference does and does not settle for compliance, since keeping code on-premises is not by itself a control
-- Auditing the Day 1 and Day 2 harness to decide which tasks are candidates to move local
-
-**Hour 16 — Hardware: Sizing the Machine That Runs the Model**
+**Hour 3 — Hardware: Sizing the Machine That Runs the Model**
 - The one number that decides everything: VRAM, and the memory bandwidth that decides how fast it reads
 - NVIDIA consumer against workstation cards, the 8, 16, 24, 32 and 48 GB tiers, and what each tier can actually hold
 - Apple Silicon unified memory, AMD ROCm and Intel, plus CPU-only and partial-offload inference and the speed penalty each carries
 - Multi-GPU, quantised key-value cache and context length, which is the setting that silently exhausts VRAM
 - Buy against rent: a workstation, one shared team GPU host, or a rented cloud GPU, costed against per-token frontier spend
 
-**Hour 17 — `llama.cpp` and GGUF: Standing Up an Inference Server**
+**Hour 4 — `llama.cpp` and GGUF: Standing Up an Inference Server**
 - Installing `llama.cpp` from a prebuilt release, or building it against the right backend for CUDA, Metal, Vulkan or ROCm
 - The GGUF single-file format, quantisation levels from Q8_0 down to Q3_K_M, and why Q4_K_M is the working default
 - Running `llama-server` with `-m`, `--ctx-size`, `-ngl`, `--port` and `--jinja`, and tracking where the VRAM goes
 - Pulling a model directly from Hugging Face and confirming the server answers a first request
-- Serving one endpoint for a team: model swapping, keep-alive, concurrent requests and queueing on a single card
 
-**Hour 18 — The Model Field: Which Open Weights Are Good Enough for Code**
+**Hour 5 — The Model Field: Which Open Weights Are Good Enough for Code**
 - The 2026 open-weight coding field, covering the Qwen3-Coder, gpt-oss, GLM, Devstral, DeepSeek and Gemma families and what each is built for
 - The tiers by VRAM budget, with a named reference model and an expected token rate at 8, 16, 24 and 48 GB or above
 - Dense against mixture-of-experts, active parameters, and why an MoE model outperforms its memory footprint
 - Reading the benchmarks honestly: code generation, tool-selection accuracy and agentic completion, and why the last one predicts real use
 - Measuring the machine in front of you with `llama-bench`, covering prompt processing, generation speed and the context length that actually fits
 
-**Hour 19 — Pointing the Harness at a Local Model**
+**Hour 6 — Pointing the Harness at a Local Model**
 - The Anthropic Messages API and the OpenAI-compatible routes that `llama-server` exposes
 - Running Claude Code against the local endpoint by setting `ANTHROPIC_BASE_URL`
 - Configuring OpenCode against the same server as a local provider
 - Tool calling on a local model, and its failure modes: malformed calls, repeated calls, and a context window that truncates mid-task
+- Open weights against open source: Apache 2.0, MIT and custom licences, and what each permits commercially
 
-**Hour 20 — Local Against Frontier: A Measured Comparison**
-- One repository and one identical spec, run three times: local model, mid-tier cloud model, frontier cloud model
-- Scoring each run on completion, diff quality, tool-call accuracy, wall-clock time and money spent
-- Reading the results: which task classes the local model held, and which it broke down on
-- The hybrid pattern, running bulk and confidential work local while escalating the hard step to a frontier model
+**Hour 7 — Hands-On Lab: Local Against Frontier, Measured**
+- One repository and one trainer-supplied specification, run three times: local model, mid-tier cloud model, frontier cloud model
+- Score each run on completion, diff quality, tool-call accuracy, wall-clock time and money spent
+- Read the results: which task classes the local model held, and which it broke down on
+- Record a first hardware and model recommendation, to be revisited on Day 3 once the full harness exists
 
-**Hour 21 — Hands-On Lab: A Private Harness with No Cloud Calls**
-- Run the full Day 2 harness, meaning `AGENTS.md`, a skill, a hook, a subagent and the custom MCP server, entirely against a local model
-- Run one loop unattended on local inference, then confirm the token spend for the run is zero
-- Write a hardware and model recommendation for the participant's own workload, supported by their `llama-bench` numbers and their Hour 20 scores
-- Present the recommendation and the comparison table for trainer and peer review
+### Day 2 — The Harness: Context, Specs, Skills and Delegation
+
+**Hour 8 — The Agentic Loop on a Real Repository**
+- Asking the agent to explain unfamiliar code and trace a request flow
+- Taking a small change through edit, test run, failure and fix
+- Reading agent output critically, and recognising where agents go confidently wrong
+- Treating verification as part of the task rather than something done afterwards
+
+**Hour 9 — Context Engineering: Memory, `AGENTS.md` and Permissions**
+- How context engineering differs from prompt engineering: curating what the agent knows
+- `AGENTS.md` as an open standard: what belongs in it, what does not, and why it survives a change of tool
+- Context decay on a long session, covering working-set management, compaction, and when to start fresh
+- Why a small local context window forces the discipline that a large frontier window lets you avoid
+- Plan mode, permission modes, tool allowlists, and keeping secrets out of context
+
+**Hour 10 — Spec-Driven Development and the Git-Native Workflow**
+- Specs as the source of truth: writing a task specification an agent can be held to
+- Intent drift and unverifiable output, the two failure modes specs exist to close
+- Branch-per-task and git worktrees for isolating agent runs, plus agent-authored commits and pull requests
+- Diff review discipline, and how to recover cleanly when a run goes wrong
+
+**Hour 11 — Skills: Packaging Repeatable Expertise**
+- `SKILL.md` anatomy: frontmatter, description, procedure, hard rules
+- Progressive disclosure, and why a skill loads only when it is relevant
+- Writing descriptions that trigger reliably, on a frontier model and on a weaker local one
+- Converting an existing team runbook into a working skill
+
+**Hour 12 — Subagents and Multi-Agent Orchestration**
+- Defining a subagent: system prompt, scoped tools, model tier
+- Context isolation, and how delegation preserves the main session's window
+- Fanning out independent tasks in parallel, compared with one long session
+- Routing by tier: cheap or local subagents for bulk work, a frontier subagent for the hard step
+
+**Hour 13 — Hooks: Deterministic Guardrails**
+- Hook events: session start, pre and post tool use, stop
+- Blocking a dangerous command before the agent can run it
+- Auto-formatting edited files and scanning for secrets on write
+- Why a guardrail has to be enforced by a hook rather than requested in a prompt, and why that matters more on a local model
+
+**Hour 14 — Hands-On Lab: Ship a Feature End-to-End**
+- Seed a supplied repository with `AGENTS.md` and one authored skill
+- Write a short spec, then take the feature from plan mode through implementation, tests and pull request
+- Run the same task on a frontier model and on the local endpoint, then compare output, quality and cost
+- Trainer review of each participant's spec, diff and commit history
+
+### Day 3 — Extending and Automating: MCP, Loops and Team Adoption
+
+**Hour 15 — MCP Servers: Wiring the Agent to Your Systems**
+- The MCP model of tools, resources and prompts, and where it sits in the 2026 standards stack alongside `AGENTS.md` and agent-to-agent protocols
+- Transport choices: local stdio servers against remote servers
+- Connecting existing servers for GitHub, a database, documentation and a browser
+- Scoping, authentication, and the real risks of over-broad tool access
+
+**Hour 16 — Build a Minimal MCP Server**
+- Exposing one internal tool over MCP with a typed input schema
+- Testing the server standalone before wiring it to any agent
+- Registering it in both Claude Code and OpenCode
+- Schema design, and the failure modes that leave an agent confused
+
+**Hour 17 — Loop Engineering: Agents That Run Themselves**
+- Headless, non-interactive invocation and structured output for scripting
+- The four loop shapes: scheduled by cron, triggered by an event, run continuously on a heartbeat, or run until a goal is met
+- Practical loops that triage new issues, review incoming pull requests, chase a failing CI job, or sweep a migration across a repository
+- Stop conditions, retry limits and spend caps, which are what keep a loop from running away
+
+**Hour 18 — Loops on Local Inference: Unattended Work at Fixed Cost**
+- Why a loop is the strongest case for local inference, since its token cost is otherwise uncapped
+- Serving one endpoint for a team: model swapping, keep-alive, concurrent requests and queueing on a single card
+- Hybrid routing, running bulk and confidential work local while escalating the hard step to a frontier model
+- Reliability on a weaker model: tighter specs, narrower tools, more hooks and a shorter leash
+
+**Hour 19 — Evals: Proving the Harness Still Works**
+- Writing a small eval that proves the harness still works after a change to memory, a skill or a model
+- Using an eval to answer the real question, which is whether a local model is good enough for a named task class
+- Regression testing a model swap, so that changing the endpoint is a measured decision
+- Where an eval belongs in CI, and what to do when it fails
+
+**Hour 20 — Cost, Data Handling and Team Adoption**
+- Token spend, model tiering, and setting a budget per task and per loop
+- The full local cost model: hardware, electricity and engineer time set against per-token cloud spend
+- Data handling: which code and credentials must never reach a hosted model, and what local inference does and does not settle for compliance
+- Review accountability, organisational policy, and rolling a shared harness across a team repository
+
+**Hour 21 — Hands-On Lab: Build a Team Harness and Run a Private Loop**
+- Assemble one repository carrying `AGENTS.md`, a skill, a hook, a custom MCP server and a subagent
+- Verify the harness by having the agent complete a task it could not have completed at Hour 1
+- Stand up one event-triggered or goal-driven loop against the local endpoint with a stop condition, then confirm the token spend for the run is zero
+- Revise the Hour 7 hardware and model recommendation with everything learned since, then present it for trainer and peer review
 
 ## 08 Assessment Method
 
@@ -259,10 +260,10 @@ Participants will receive a Certificate of Completion upon successful attendance
 - Stable internet access, since agentic harnesses call hosted models continuously
 - `llama.cpp`, installed from a prebuilt release or built with the backend matching the participant's GPU
 - A Hugging Face account, for downloading GGUF model files
-- Roughly 60 GB of free disk space for model files across the Day 3 labs
-- Hardware for Day 3: see the reference hardware tiers below. A trainer-provided shared endpoint covers participants whose machines sit below the Practical tier.
+- Roughly 60 GB of free disk space for model files, needed from Day 1 onward
+- Hardware from Day 1 onward: see the reference hardware tiers below. A trainer-provided shared endpoint covers participants whose machines sit below the Practical tier.
 
-**Reference hardware tiers for Day 3.** Hardware is a taught topic, not a prerequisite to guess at. Participants size their own machine in Hour 16 against this table. VRAM sets which models load at all. Memory bandwidth sets how fast they generate.
+**Reference hardware tiers.** Hardware is a taught topic, not a prerequisite to guess at. Participants size their own machine in Hour 3 against this table. VRAM sets which models load at all. Memory bandwidth sets how fast they generate.
 
 | Tier | Representative hardware | Usable VRAM or unified memory | What it serves | Expected generation speed |
 |---|---|---|---|---|
@@ -274,7 +275,7 @@ Participants will receive a Certificate of Completion upon successful attendance
 
 Rented cloud GPUs are covered as an option in the same hour, priced per hour against the frontier token spend they displace. Participants below the Practical tier complete the labs against a trainer-provided shared endpoint and still serve a small model on their own machine.
 
-**Reference model set for Day 3.** The exact builds are confirmed against current releases before delivery, since the open-weight field moves monthly. Selection favours permissive licences, GGUF availability and demonstrated tool-calling ability, because a coding agent that cannot call tools reliably is unusable regardless of its code-generation score.
+**Reference model set.** The exact builds are confirmed against current releases before delivery, since the open-weight field moves monthly. Selection favours permissive licences, GGUF availability and demonstrated tool-calling ability, because a coding agent that cannot call tools reliably is unusable regardless of its code-generation score.
 
 | VRAM budget | Reference model | Architecture | Quantisation and size | Context | Agentic verdict |
 |---|---|---|---|---|---|
@@ -282,9 +283,9 @@ Rented cloud GPUs are covered as an option in the same hour, priced per hour aga
 | 16 GB | gpt-oss-20b (Apache 2.0) | Mixture-of-experts, 20.9 B total and about 3.6 B active | MXFP4, around 14 GB | 131K | Fits fully on the accelerator, so it is fast enough for interactive agent work with dependable tool calling |
 | 24 GB | Qwen3-Coder-30B-A3B-Instruct (Apache 2.0) | Mixture-of-experts, 30.5 B total and about 3.3 B active | Q4_K_M, around 18 GB | 256K, extensible with YaRN | The practical entry point for multi-file agentic work. Reported at roughly 80% code generation, 77% tool selection and 80% agent accuracy on an independent local harness |
 | 48 GB and above | Qwen3-Coder-Next-80B, or a GLM or Devstral class agentic coder | Mixture-of-experts or dense, depending on the model chosen | Q4_K_M, around 45 GB for the 80B | 256K | The closest open-weight approach to frontier behaviour on long-horizon repository tasks |
-| Cloud frontier, for comparison | Claude Opus and Sonnet, GPT-5 class Codex models | Hosted, weights not published | Not applicable | 200K and above | The Hour 20 baseline. Best open-weight models land near the frontier on published SWE-bench Verified scores, and the gap that remains shows up on long-horizon tool use rather than on single-file code generation |
+| Cloud frontier, for comparison | Claude Opus and Sonnet, GPT-5 class Codex models | Hosted, weights not published | Not applicable | 200K and above | The Hour 7 baseline. Best open-weight models land near the frontier on published SWE-bench Verified scores, and the gap that remains shows up on long-horizon tool use rather than on single-file code generation |
 
-Benchmark figures above are drawn from public aggregate reporting and are re-checked against model cards before delivery. The course teaches participants to distrust these numbers and measure agentic completion on their own repository, which is the Hour 20 exercise.
+Benchmark figures above are drawn from public aggregate reporting and are re-checked against model cards before delivery. The course teaches participants to distrust these numbers and measure agentic completion on their own repository, which is the Hour 7 lab.
 
 ## 11 Expected Outcomes & Impact
 
@@ -311,4 +312,4 @@ Benchmark figures above are drawn from public aggregate reporting and are re-che
 - A full day requires a minimum of seven training hours. This programme runs seven hours on each of the three days.
 - Recommended group size is 12 to 20 participants. The minimum is two participants, and HRD Corp prorates the fee for groups smaller than five.
 - The fee covers trainer delivery, lab repositories, course materials and the harness templates participants take away. Venue, meals and participant travel are claimed separately by the employer under their own ACM line items.
-- GPU hardware for Day 3 is not included. Participants use their own machines, or the employer provides a shared GPU host. The trainer brings one shared endpoint as a fallback.
+- GPU hardware for the local-inference labs is not included. Participants use their own machines, or the employer provides a shared GPU host. The trainer brings one shared endpoint as a fallback.
