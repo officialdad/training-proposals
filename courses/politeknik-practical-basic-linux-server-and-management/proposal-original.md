@@ -12,9 +12,9 @@
 
 Most of the internet runs on Linux, but students usually meet it for the first time only after they graduate — and often in the middle of their industrial training, with a supervisor waiting. This two-day online programme, delivered under the Industry Expert Engagement Programme (IEEP), closes that gap by taking participants from their very first login on an Ubuntu Server to a live website served from a real domain name.
 
-Day 1 builds the ground floor. Participants learn what an Ubuntu Server actually is and why industry runs on it, read basic system information from the command line, move confidently around the filesystem, and work with files and text without a graphical editor. The day then turns to the part that separates a user from an administrator: users, groups, ownership and permissions. It closes with a practical challenge in which participants stand up a small company's departmental folder structure — ICT, Finance, HR — and then prove the access controls hold by logging in as each user and being correctly refused.
+Day 1 builds the ground floor. Participants learn what an Ubuntu Server actually is and why industry runs on it, read basic system information from the command line, move confidently around the filesystem, and work with files and text without a graphical editor. The day then turns to the part that separates a user from an administrator: users, groups, ownership and permissions. It closes with a practical challenge on a shared team server: participants create two developer accounts and a service account, permission a project tree so that developers collaborate freely, a deploy robot alone can write releases, and a secrets file stays closed to both — then prove every one of those boundaries by switching user and being correctly refused.
 
-Day 2 puts that server on the network. Participants check connectivity, install OpenSSH Server and administer the machine remotely the way a real engineer does, then manage packages with APT and services with `systemctl`. From there they deploy the same static website twice — first on Apache, then on Nginx — and discover for themselves why the two cannot both hold port 80. The programme finishes with the trainer working live on a real cloud VPS, walking participants along the full path from a public IP address through a DNS A record and the Cloudflare dashboard to a working HTTPS site, before participants publish and verify their own page end to end.
+Day 2 puts that server on the network. Participants check connectivity, install OpenSSH Server and administer the machine remotely the way a real engineer does, then manage packages with APT and services with `systemctl`. From there they deploy the same static website twice — first on Apache, then on Nginx — and discover for themselves why the two cannot both hold port 80. The programme finishes with the trainer working live on a real cloud VPS, walking participants along the full path from a public IP address through a DNS A record and the Cloudflare dashboard to a working HTTPS site, before participants take their own page public end to end — at zero cost, using a free Cloudflare quick tunnel that needs no domain, no card and no public IP address.
 
 Every command is typed by the participant on their own Ubuntu Server instance. Nothing is copied blind, and nothing is simulated — what they practise here is what they will do on the job.
 
@@ -51,7 +51,7 @@ At the end of this programme, participants will be able to:
 
 1. **Explain** the role of Ubuntu Server in industry and **retrieve** core system information — hostname, CPU, memory, disk and IP address — from the command line
 2. **Navigate** the Linux filesystem and **manage** files and directories, including viewing, searching and editing text files
-3. **Configure** users, groups, ownership and permissions so that each department can access only its own data
+3. **Configure** users, groups, service accounts, ownership and permissions on a shared server so that each account can reach only what its role requires
 4. **Administer** an Ubuntu Server remotely over SSH and **manage** packages and services using APT and `systemctl`
 5. **Deploy** a static website on both Apache and Nginx and reach it via the server's IP address
 6. **Compare** Apache and Nginx at an introductory level and **describe** how a public IP, DNS A record, Cloudflare proxy and HTTPS publish a site to the internet
@@ -62,7 +62,7 @@ Upon completion of the programme, participants will be able to:
 
 - Describe why Linux dominates server infrastructure, and report a server's hostname, CPU, memory, disk and network address without a graphical interface
 - Move around the Linux directory tree and create, copy, move, rename, delete, view, search and edit files entirely from the command line
-- Create users and groups, grant `sudo` privileges appropriately, and set ownership and read/write/execute permissions that enforce a departmental access boundary
+- Create human and service accounts, grant `sudo` privileges appropriately, and set ownership and read/write/execute permissions that enforce role boundaries on a shared server — then verify each boundary with `sudo -u`
 - Verify network connectivity, install and use OpenSSH Server, log into a remote Ubuntu Server, install software with APT and control services with `systemctl`
 - Install, start, stop, restart and status-check both Apache and Nginx, deploy a simple HTML site on each, and diagnose the port conflict that arises when both run at once
 - Explain, in plain terms, how a domain name resolves to a server's public IP via a DNS A record, what the Cloudflare proxy adds, and why HTTPS matters
@@ -126,13 +126,23 @@ Upon completion of the programme, participants will be able to:
 - Reading and setting permissions with `chmod` (symbolic and numeric) and `chown`
 - Common permission mistakes and how to recognise them
 
-**Hour 7 — Hands-On Lab: Departmental Access Control**
+**Hour 7 — Hands-On Lab: Permissions on a Shared Team Server**
 
-- Create company departments such as ICT, Finance and HR
-- Create users and groups for each department
-- Create department folders with correct ownership
-- Configure permissions so that each user can access only their own department folder
-- Verify the boundary — log in as each user and confirm access is correctly granted and correctly refused
+*Scenario: one Ubuntu server shared by a small development team — the exact machine participants will be handed during industrial training.*
+
+- Create the human accounts `alice` and `bob` and the groups `developers` and `deployers`
+- Create the service account `deploy` with no login shell, and discuss why a program needs a user identity of its own
+- Build the project tree and set ownership and permissions:
+  - `/srv/app/src` — `alice:developers`, mode `2775` — both developers collaborate, and setgid makes new files inherit the group automatically
+  - `/srv/app/releases` — `deploy:deployers`, mode `0755` — developers may read, only the deploy account may write
+  - `/srv/app/secrets.env` — `root:deployers`, mode `0640` — a file the developers genuinely cannot open
+- Prove every boundary with `sudo -u` rather than taking it on trust:
+  - `sudo -u bob cat /srv/app/secrets.env` → permission denied
+  - `sudo -u bob touch /srv/app/releases/test` → permission denied
+  - `sudo -u alice touch /srv/app/src/test` → succeeds, and `ls -l` confirms the group was inherited
+- Read and interpret the exact error message each refusal produces
+
+*Stretch goals if time allows: the setgid bit and the secrets file may be dropped for a slower group without losing the core of the exercise.*
 
 ### Day 2 — Network, Web Server and Hosting
 
@@ -182,13 +192,20 @@ Upon completion of the programme, participants will be able to:
 - HTTPS / SSL explained at a high level
 - Open the website using a real domain name
 
-**Hour 14 — Hands-On Lab: Publish and Verify Your Own Site**
+**Hour 14 — Hands-On Lab: Take Your Own Site Public at Zero Cost**
 
-- Deploy a personalised HTML page on the participant's own server
-- Serve it from Apache, then switch the same content to Nginx
-- Verify from a peer's browser over the server IP address
+*Scenario: reproduce Hour 13's result without buying a domain, renting a server, or entering a card — three layers, each explaining the next.*
+
+- Deploy a personalised HTML page on the participant's own server and serve it from Apache, then switch the same content to Nginx
+- **Layer 1 — a name on your own machine:** add an `/etc/hosts` entry so `http://myserver.test` works, proving a domain is nothing more than a name-to-IP mapping
+- **Layer 2 — a name in real public DNS:** reach the server as `http://<ip-with-dashes>.sslip.io`, a free wildcard DNS service needing no signup, proving the lookup table is global rather than magical
+- **Layer 3 — a real public HTTPS URL:** run `cloudflared tunnel --url http://localhost:80` to obtain a working `https://<random>.trycloudflare.com` address with a valid certificate — no account, no domain, no public IP, and it works from a virtual machine behind home NAT because the server dials outwards
+- Share URLs in the session chat and open one another's sites from a phone on mobile data
+- Contrast this with Hour 13 — why an ephemeral quick tunnel is a testing tool, and what a named tunnel plus a registered domain adds in production
 - Troubleshoot the three most common failures — service down, wrong web root, blocked port
 - Course wrap-up, self-study pathways and Q&A
+
+*Fallback if the venue or home network blocks outbound tunnelling: peer-to-peer verification over the LAN address, still reached by name via `sslip.io`.*
 
 ## 08 Assessment Method
 
@@ -206,15 +223,20 @@ Participants will receive a Certificate of Completion upon successful attendance
 
 - Ubuntu Server 24.04 LTS — as a local virtual machine (VirtualBox, VMware Workstation Player or Multipass) or a provided cloud instance
 - An SSH client — OpenSSH on Linux/macOS, or Windows Terminal / PuTTY on Windows
-- A modern web browser
+- A modern web browser, plus a phone on mobile data for the Hour 14 public-URL check
 - A stable internet connection and headset for the online session
+- Outbound HTTPS access from the virtual machine, required by the Hour 14 Cloudflare quick tunnel
 
 **Provided or demonstrated by the trainer**
 
 - Apache HTTP Server and Nginx (installed during the session via APT)
 - `nano` text editor (included with Ubuntu Server)
 - A live cloud VPS, registered domain name and Cloudflare account — used for the Hour 13 demonstration only; participants are not required to purchase anything
+- `cloudflared` — installed during Hour 14; free, and requires no Cloudflare account for quick tunnels
+- `sslip.io` free wildcard DNS — no registration or payment of any kind
 - Pre-session Ubuntu Server setup guide issued to all participants
+
+*Every tool used by participants in this programme is free of charge. No domain purchase, cloud subscription or credit card is required at any point.*
 
 ## 11 Expected Outcomes & Impact
 
