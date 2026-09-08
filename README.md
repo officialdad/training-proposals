@@ -27,7 +27,7 @@ Malaysia HRDCorp SBL training proposals and course outlines.
 | xsolla-modding-trial | PC Game Modding: From Player to Creator | XSolla Curine Academy | adjusted | 3h | 2026-08-11 |
 | ai-augmented-engineering | AI-Augmented Engineering: Agents, Skills, Hooks & MCP | TBC | draft | 2d / 14h | 2026-08-20 |
 | ai-augmented-engineering-local | AI-Augmented Engineering: Agents, Skills, MCP & Local Models | TBC | draft | 3d / 21h | 2026-08-24 |
-| politeknik-practical-basic-linux-server-and-management | Practical Basic Linux Server and Management | Politeknik (IEEP) | approved | 2d / 14h | 2026-09-08 |
+| politeknik-practical-basic-linux-server-and-management | Practical Basic Linux Server and Management | Politeknik (IEEP) | draft | 2d / 14h | 2026-09-08 |
 
 ## Layout
 
