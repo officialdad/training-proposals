@@ -28,6 +28,7 @@ Malaysia HRDCorp SBL training proposals and course outlines.
 | ai-augmented-engineering | AI-Augmented Engineering: Agents, Skills, Hooks & MCP | TBC | draft | 2d / 14h | 2026-08-20 |
 | ai-augmented-engineering-local | AI-Augmented Engineering: Agents, Skills, MCP & Local Models | TBC | draft | 3d / 21h | 2026-08-24 |
 | politeknik-linux-server-and-management | Practical Basic Linux Server and Management | Politeknik (IEEP) | approved | 2d / 14h | 2026-09-08 |
+| xsolla-modding-unity | Unity Game Modding: From Decompiler to Published Mod | XSolla Curine Academy | draft | 1d / 7h | 2026-09-09 |
 
 ## Layout
 
